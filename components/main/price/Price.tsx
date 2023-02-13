@@ -23,7 +23,7 @@ const Price = ({ data }: Props) => {
         </p>
       </div>
       <ul className="flex flex-col gap-4">
-        {data.option.map((d, index) => (
+        {data.option.map((d: any, index: number) => (
           <li key={index} className="flex items-center gap-2 group">
             <div className="h-5 w-5 rounded-full flex items-center justify-center p-1 bg-green-200 group-hover:bg-green-700 ">
               <AiOutlineCheck className="text-2xl text-green-700 font-bold group-hover:text-green-200" />

@@ -309,7 +309,7 @@ const CourseDetail = (props: Props) => {
                 </ul>
 
                 <div className="flex justify-center w-full">
-                  <Button backgroundColor="bg-blue-500">
+                  <Button className="bg-blue-500 text-white after:bg-blue-500">
                     Enroll{" "}
                     <FiArrowRight className="font-bold text-xl group-hover:translate-x-1 transition-all " />
                   </Button>
