@@ -54,7 +54,7 @@ const Prices = (props: Props) => {
           </button>
         </div>
 
-        <div className="flex flex-col md:flex-row gap-6 w-full max-w-[95%] h-full items-center md:items-start justify-center">
+        <div className="flex flex-col  md:flex-row gap-6 w-full max-w-[95%] h-full items-center md:items-start justify-center">
           {data.map((d, index) => (
             <Price key={index} data={d} />
           ))}
