@@ -26,11 +26,11 @@ const SubHeader = (props: Props) => {
       <div className="max-w-screen-xl w-[95%] m-auto flex justify-between  items-center ">
         <ul className="flex gap-4 items-center  text-white z-10 text-sm font-medium">
           <li className="flex items-center gap-1">
-            <CgPhone className=" text-2xl" /> <p>+8868746051</p>
+            <CgPhone className=" text-2xl" /> <p>+8123456789</p>
           </li>
           <li className="hidden lg:flex items-center gap-1">
             <MdAlternateEmail className="text-2xl" />
-            <p>vmtruc060500@gmail.com</p>
+            <p>abcd1234@gmail.com</p>
           </li>
         </ul>
 
