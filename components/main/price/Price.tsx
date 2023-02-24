@@ -17,9 +17,9 @@ const Price = ({ data }: Props) => {
       )}
       <div className="flex flex-col gap-4 pb-8 border-b border-gray-300">
         <h4 className="text-2xl font-bold">{data.type}</h4>
-        <p className="text-sm">Perfect for small marketing teams</p>
+        <p className="text-sm">Hoàn hảo cho các nhóm nhỏ</p>
         <p>
-          <span className="text-6xl font-bold">${data.price}</span>.99 / monthly
+          <span className="text-6xl font-bold">{data.price}</span>.Tr / Tháng
         </p>
       </div>
       <ul className="flex flex-col gap-4">
@@ -32,7 +32,10 @@ const Price = ({ data }: Props) => {
           </li>
         ))}
       </ul>
-      <Button className="bg-blue-500 text-white"> Get Start</Button>
+      <Button className="bg-blue-500 text-white after:bg-blue-500">
+        {" "}
+        Bắt đầu
+      </Button>
     </div>
   );
 };

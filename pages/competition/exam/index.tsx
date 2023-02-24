@@ -28,7 +28,7 @@ const Exam = (props: Props) => {
   return (
     <div className="mt-[170px] bg-gray-edeef3 min-h-screen flex items-center">
       <Head>
-        <title>Exam </title>
+        <title>Exam</title>
       </Head>
       <div className="max-w-screen-xl h-full m-auto w-[95%] flex flex-col gap-16 items-center justify-center pb-32">
         <div className="flex flex-col justify-center items-center">

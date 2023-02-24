@@ -21,7 +21,7 @@ const Confirm = (props: Props) => {
     <>
       <div className="mt-[170px] bg-gray-edeef3 min-h-screen">
         <Head>
-          <title>Register Event</title>
+          <title>Event Confirmation</title>
         </Head>
         <div className="max-w-screen-xl h-full mx-auto w-[95%] flex flex-col gap-16 items-center justify-start pb-32">
           <div className="flex md:flex-row flex-col justify-center items-center">

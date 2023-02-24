@@ -26,18 +26,16 @@ const SubHeader = (props: Props) => {
       <div className="max-w-screen-xl w-[95%] m-auto flex justify-between  items-center ">
         <ul className="flex gap-4 items-center  text-white z-10 text-sm font-medium">
           <li className="flex items-center gap-1">
-            <CgPhone className=" text-2xl" /> <p>+8123456789</p>
+            <CgPhone className=" text-2xl" /> <p>0989830047</p>
           </li>
           <li className="hidden lg:flex items-center gap-1">
             <MdAlternateEmail className="text-2xl" />
-            <p>abcd1234@gmail.com</p>
+            <p>info@kdeducode.com</p>
           </li>
         </ul>
 
         <div className="flex items-center gap-10 text-sm font-medium z-10">
-          <p className="hidden lg:block">
-            Thứ 2 - Thứ 7 : 9:00am - 6:00pm / Sunday - ĐÓNG CỬA
-          </p>
+          <p className="hidden lg:block">Thứ 2 - Chủ nhật | 8:00am - 22:00am</p>
           <ul className="flex items-center sm:gap-4 gap-1">
             <li className="h-12 w-12 cursor-pointer hover:bg-amber-800 rounded-full flex justify-center items-center hover:text-white hover:border hover:border-orange-f04c23">
               <BsInstagram className="text-lg" />

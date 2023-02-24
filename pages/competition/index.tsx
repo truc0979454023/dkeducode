@@ -20,7 +20,7 @@ const Competition = (props: Props) => {
   return (
     <div className="mt-[170px] bg-gray-edeef3 min-h-screen">
       <Head>
-        <title>Competition </title>
+        <title>Competition</title>
       </Head>
       <section className=" flex items-center pt-16 pb-32 ">
         <div className="max-w-screen-xl h-full mx-auto w-[95%] flex flex-col gap-16 items-center justify-start">

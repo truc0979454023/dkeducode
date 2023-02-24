@@ -8,8 +8,10 @@ const Events = (props: Props) => {
     <section className="min-h-screen flex items-center py-32 bg-white ">
       <div className="max-w-screen-xl m-auto w-[95%] flex flex-col gap-16 items-center justify-center">
         <div className="flex flex-col justify-center items-center gap-3">
-          <h2 className="text-[36px] leading-[1]  font-bold">Current Events</h2>
-          <p className="">We found 13 events available for you.</p>
+          <h2 className="text-[36px] leading-[1] capitalize font-bold">
+            Sự kiện hiện tại
+          </h2>
+          <p className="">Hiện tại có 1 sự kiện dành cho bạn.</p>
         </div>
 
         <div className="flex flex-col gap-4 w-full h-full items-center relative">

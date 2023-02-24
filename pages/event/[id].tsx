@@ -65,10 +65,10 @@ const Register = (props: Props) => {
   return (
     <div className="mt-[170px] bg-gray-edeef3 min-h-screen">
       <Head>
-        <title>Register Event</title>
+        <title>Event Register</title>
       </Head>
       <div className="max-w-screen-xl h-full mx-auto w-[95%] flex flex-col gap-16 items-center justify-start pb-32">
-        <div className="lg:h-full w-full lg:flex justify-center items-start gap-4">
+        <div className="lg:h-full w-full flex md:flex-row flex-col-reverse justify-center items-start gap-4">
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="lg:w-1/2 h-full flex flex-col justify-center mt-4 items-center gap-14 "

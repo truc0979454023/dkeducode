@@ -12,8 +12,8 @@ const Event = (props: Props) => {
       <div className="flex">
         <div className="flex flex-col gap-4">
           <p>
-            Ngày 19 tháng 3 năm 2023 | 8:00 am | Nhà văn hóa sinh viên ĐHQG TP
-            Hồ Chí Minh Esport Center Esport Center{" "}
+            Chủ Nhật, Ngày 19 tháng 3 năm 2023 | 8:00 am | Nhà văn hóa sinh viên
+            ĐHQG TP Hồ Chí Minh Esport Center Esport Center{" "}
           </p>
           <div className="flex justify-between">
             <Link href={`/event/${"cuoc-thi-tim-kiem-tai-nang-excel"}`}>
@@ -21,7 +21,7 @@ const Event = (props: Props) => {
                 Cuộc thi &#34;Tìm kiếm tài năng Excel &#34;
               </h6>
             </Link>
-            <div className="flex items-center w-full md:w-auto gap-2 group">
+            <div className="items-center hidden md:flex w-full md:w-auto gap-2 group">
               <Link
                 href={`/event/${"cuoc-thi-tim-kiem-tai-nang-excel"}`}
                 className="hover:text-orange-f04c23 cursor-pointer font-medium"

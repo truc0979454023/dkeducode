@@ -7,13 +7,13 @@ const data = [
   {
     tag: false,
     type: "Gold",
-    price: 39,
+    price: 1.5,
     option: ["Course Discussions", "Content Library", "1-hour Mentorship"],
   },
   {
     tag: true,
     type: "Diamond",
-    price: 79,
+    price: 2.5,
     option: [
       "Course Discussions",
       "Content Library",
@@ -31,9 +31,9 @@ const Prices = (props: Props) => {
       <div className="max-w-screen-xl mx-auto w-[95%] flex flex-col gap-16 items-center justify-start">
         <div className="flex flex-col justify-center items-center gap-3">
           <h2 className="text-[36px] leading-[1] text-center font-bold">
-            Simple <br /> All Inclusive Pricing
+            Đơn giản <br /> Tất cả chi phí bao gồm
           </h2>
-          <p className="">No contracts. No surprise fees.</p>
+          <p className="">Không có hợp đồng. Không chi phí bất ngờ</p>
         </div>
         <div className="rounded-lg">
           <button
@@ -42,7 +42,7 @@ const Prices = (props: Props) => {
               optionPrice === 0 ? "bg-orange-f04c23 text-white" : "bg-white"
             } p-2 rounded-tl-md rounded-bl-md border-2 border-r-0 border-gray-300 `}
           >
-            Monthly Plan
+            Hàng tháng
           </button>
           <button
             onClick={() => setOptionPrice(1)}
@@ -50,7 +50,7 @@ const Prices = (props: Props) => {
               optionPrice === 1 ? "bg-orange-f04c23  text-white" : "bg-white"
             } p-2 rounded-tr-md rounded-br-md border-2 border-l-0 border-gray-300 `}
           >
-            Annual Plan
+            Hàng năm
           </button>
         </div>
 

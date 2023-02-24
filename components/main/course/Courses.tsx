@@ -10,13 +10,7 @@ import course6 from "@/assets/images/course-6.jpg";
 type Props = {};
 
 const Courses = (props: Props) => {
-  const dataCategories = [
-    "Tất cả",
-    "Trending",
-    "Phổ biến",
-    "Featured",
-    "Art & Design",
-  ];
+  const dataCategories = ["Tất cả", "Trending", "Phổ biến", "Trong tương lai"];
 
   const dataCourses = [
     {
