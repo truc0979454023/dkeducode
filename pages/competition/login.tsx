@@ -14,11 +14,8 @@ import Cookies from "js-cookie";
 
 type Props = {};
 type Inputs = {
-  name: string;
   phone: string;
-  majob: string;
-  school: string;
-  email: string;
+  candidateId: string;
 };
 
 const Login = (props: Props) => {
@@ -48,7 +45,6 @@ const Login = (props: Props) => {
         autoClose: 1500,
       });
     }
-    console.log(auth);
     if (auth?.user) {
       router.push("/competition/exam");
     }
@@ -61,6 +57,7 @@ const Login = (props: Props) => {
       dispatch(
         login({
           phone: data.phone,
+          candidatesid: data.candidateId,
         })
       );
       setLoading(false);
@@ -87,10 +84,11 @@ const Login = (props: Props) => {
             className="lg:w-1/2 h-full flex flex-col justify-center mt-4 items-center gap-14 "
           >
             <div className="flex flex-col w-full justify-center items-center gap-14">
-              <div className="w-full flex flex-col items-center max-w-[480px]">
+              <div className="w-full flex flex-col gap-10 items-center max-w-[480px]">
                 <div className="w-full">
                   <Input
                     size="lg"
+                    required={true}
                     readOnly={loading}
                     type={"tel"}
                     label="Số điện thoại"
@@ -102,6 +100,25 @@ const Login = (props: Props) => {
                   {errors.phone?.message && (
                     <p className="text-red-500 p-0 text-sm">
                       {errors.phone?.message}
+                    </p>
+                  )}
+                </div>
+
+                <div className="w-full">
+                  <Input
+                    size="lg"
+                    required={true}
+                    readOnly={loading}
+                    type={"tel"}
+                    label="Mã thí sinh"
+                    register={register("candidateId", {
+                      required: "Vui lòng nhập mã thí sinh",
+                    })}
+                    id="candidateId"
+                  />
+                  {errors.candidateId?.message && (
+                    <p className="text-red-500 p-0 text-sm">
+                      {errors.candidateId?.message}
                     </p>
                   )}
                 </div>

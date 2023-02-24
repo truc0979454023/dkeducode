@@ -34,7 +34,7 @@ const Confirm = (props: Props) => {
             <p className="text-3xl font-medium text-center">
               Chúc mừng bạn đã đăng ký thành công với mã số báo thi
             </p>
-            <span className="px-10 py-4 text-center font-medium text-3xl bg-gray-100">
+            <span className="px-10 py-4 text-red-500 text-center font-medium text-3xl bg-gray-100">
               {id}
             </span>
           </div>

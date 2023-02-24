@@ -138,11 +138,21 @@ const ExamPage = (props: Props) => {
                     register={register(`${idx + 1 + (page - 1) * 10}`)}
                     id={`${idx + 1 + (page - 1) * 10}`}
                   />
-                  <Image
-                    src={tick}
-                    alt=""
-                    className="h-14 w-14 absolute right-0 top-1/2  -translate-y-1/2"
-                  />
+
+                  {
+                    <>
+                      <Image
+                        src={tick}
+                        alt=""
+                        className="h-14 w-14 absolute right-0 top-1/2  -translate-y-1/2"
+                      />
+                      {/* <Image
+                        src={cand}
+                        alt=""
+                        className="h-14 w-14 absolute right-0 top-1/2  -translate-y-1/2"
+                      /> */}
+                    </>
+                  }
                 </div>
               </div>
             ))}
@@ -150,13 +160,29 @@ const ExamPage = (props: Props) => {
 
           <div className="absolute -bottom-28 flex justify-end items-center w-full gap-8">
             <div className="flex-1 flex flex-col justify-end items-end ">
-              <p className="text-7xl text-green-700">Congratulations!</p>
+              <p className="text-7xl text-green-700 font-signika">
+                Congratulations!
+              </p>
               <p className="text-xl">
                 Chúc mừng thí sinh , mời bạn làm tiếp trang 2
               </p>
             </div>
             <Button>Tiếp tục</Button>
           </div>
+
+          {/* <div className="absolute -bottom-32 flex justify-end items-center w-full gap-8">
+            <div className="flex-1 flex flex-col justify-end items-end ">
+              <p className="text-7xl text-red-500 font-signika">
+                See you next time!
+              </p>
+              <p className="text-xl">
+                Cảm ơn bạn đã tham gia thi đấu.
+                <br />
+                Chúc bạn bình tĩnh hơn cho mùa 2.
+              </p>
+            </div>
+            <Button>Thoát</Button>
+          </div> */}
         </div>
 
         {/* footer */}

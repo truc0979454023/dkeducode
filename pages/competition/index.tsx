@@ -39,6 +39,7 @@ const Competition = (props: Props) => {
                 address={competition.address}
                 title={competition.title}
                 timeStart={competition.timestart}
+                competitionId={competition.examID}
               />
             ))}
           </div>

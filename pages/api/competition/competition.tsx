@@ -3,6 +3,7 @@ import {
   convertTokenUserEventURL,
   getListCompetitionURL,
   getListExamSubjectURL,
+  getListExamTypeURL,
   loginUserEventURL,
   sendAnswerURL,
 } from "./competitionURL";
@@ -25,4 +26,11 @@ export const getListExamSubject = async (token?: string | undefined) => {
 
 export const getListCompetition = async (token?: string | undefined) => {
   return await getDataAPI(getListCompetitionURL, token);
+};
+
+export const getListExamType = async (
+  examID: number,
+  token?: string | undefined
+) => {
+  return await getDataAPI(getListExamTypeURL(examID), token);
 };
