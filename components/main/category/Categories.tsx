@@ -19,32 +19,32 @@ const Categories = (props: Props) => {
   const data = [
     {
       icons: <ArtDesign />,
-      name: "Art & Design ",
+      name: "Excel cơ bản",
       content: "Fun & Challenging",
     },
     {
       icons: <DataScience />,
-      name: "Data Science",
+      name: "Excel nâng cao",
       content: "Data is Everything",
     },
     {
       icons: <Finance />,
-      name: "Finance",
+      name: "Master Excel",
       content: "Fun & Challenging",
     },
     {
       icons: <HomeSVG />,
-      name: "Data Science",
+      name: "Excel 365",
       content: "Data is Everything",
     },
     {
       icons: <LifeStyle />,
-      name: "Lifestyle ",
+      name: "VBA tự động hóa Excel  ",
       content: "New Skills, New You",
     },
     {
       icons: <MaketingSVG />,
-      name: "Marketing",
+      name: "VBA Master",
       content: "Improve your business",
     },
   ];
@@ -54,13 +54,13 @@ const Categories = (props: Props) => {
       <div className="max-w-screen-xl h-full m-auto w-[95%] flex flex-col gap-10 items-center justify-center">
         <div className="flex flex-col md:flex-row justify-between w-full md:items-center gap-4 md:gap-0">
           <h3 className="text-[32px] md:text-[36px] leading-[1] font-bold">
-            Explore
+            Khám phá
             <br />
-            Our Popular Courses
+            Các khóa học nổi tiếng của chúng tôi
           </h3>
           <div className="flex gap-2 items-center group">
             <p className="group-hover:text-orange-f04c23 cursor-pointer font-medium">
-              View all Category
+              Xem tất cả các khóa học
             </p>
             <FiArrowRight className="font-bold text-xl group-hover:translate-x-1 transition-all " />
           </div>

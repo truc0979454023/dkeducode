@@ -36,7 +36,7 @@ const SubHeader = (props: Props) => {
 
         <div className="flex items-center gap-10 text-sm font-medium z-10">
           <p className="hidden lg:block">
-            Mon - Sat 9:00am - 6:00pm / Sunday - CLOSED
+            Thứ 2 - Thứ 7 : 9:00am - 6:00pm / Sunday - ĐÓNG CỬA
           </p>
           <ul className="flex items-center sm:gap-4 gap-1">
             <li className="h-12 w-12 cursor-pointer hover:bg-amber-800 rounded-full flex justify-center items-center hover:text-white hover:border hover:border-orange-f04c23">

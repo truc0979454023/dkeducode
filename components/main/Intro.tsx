@@ -10,16 +10,16 @@ const Intro = (props: Props) => {
     <section className="min-h-screen bg-gray-edeef3 w-full ">
       <div className="min-h-[calc(100vh-170px)] m-auto flex items-end w-[95%] max-w-screen-xl gap-8 lg:gap-0 md:flex-row flex-col">
         <div className="flex-1 flex flex-col gap-4 text-center md:text-left mt-14 md:mb-14">
-          <p className="text-[36px] lg:text-[48px]">Access 2700+</p>
-          <p className="text-[42px] lg:text-[52px] leading-[1] font-bold">
-            Online Tutorial From Top Instructor.
+          <p className="text-[36px] capitalize lg:text-[48px]">Truy cập 100+</p>
+          <p className="text-[42px] capitalize lg:text-[52px] leading-[1] font-bold">
+            Khóa học trực tuyến.
           </p>
           <p className="text-xl lg:text-2xl">
-            Meet university,and cultural institutions, who&lsquo;ll share their
-            experience.
+            Gặp gỡ các giảng viên, doanh nghiệp, người sẽ chia sẻ kinh nghiệm
+            của họ.
           </p>
           <div className="flex justify-center md:justify-start">
-            <Button>View all course</Button>
+            <Button>Tìm hiểu các khóa học</Button>
           </div>
         </div>
         <div className="flex-1 flex justify-center sm:justify-between gap-8 relative mb-14 md:mb-0">

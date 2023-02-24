@@ -16,7 +16,7 @@ export default function Home() {
       </Head>
       <main className="mt-[170px] bg-gray-edeef3 w-screen overflow-x-hidden">
         <Intro />
-        <Categories />
+        {/* <Categories /> */}
         <Courses />
         <Events />
         <Prices />

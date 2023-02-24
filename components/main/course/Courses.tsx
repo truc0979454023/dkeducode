@@ -11,9 +11,9 @@ type Props = {};
 
 const Courses = (props: Props) => {
   const dataCategories = [
-    "See all",
+    "Tất cả",
     "Trending",
-    "Popularity",
+    "Phổ biến",
     "Featured",
     "Art & Design",
   ];
@@ -99,20 +99,20 @@ const Courses = (props: Props) => {
     },
   ];
   return (
-    <section className="min-h-screen flex items-center py-32 bg-gray-edeef3">
+    <section className="min-h-screen flex items-center py-32 bg-white">
       <div className="max-w-screen-xl m-auto w-[95%] flex flex-col gap-16 items-center justify-center">
         <div className="flex justify-between w-full flex-col xl:flex-row gap-16">
           <div className="">
-            <h2 className="text-[32px] md:text-[36px] leading-[1] font-bold">
-              Find The Right <br /> Online{" "}
+            <h2 className="text-[32px] capitalize md:text-[36px] leading-[1] font-bold">
+              Các khóa học <br /> trực tuyến{" "}
               <span className="relative w-full">
-                <span className="z-10">Course</span>{" "}
+                <span className="z-10">phù hợp</span>{" "}
               </span>
-              For You
+              cho bạn
             </h2>
             <p>
-              You don&apos;t have to struggle alone, you&apos;ve got our
-              assistance and help.
+              Bạn không cần phải chiến đấu một mình, bạn đã có sự giúp đỡ của
+              chúng tôi
             </p>
           </div>
           <ul className="flex flex-wrap justify-center gap-8 items-end font-medium">

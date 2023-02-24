@@ -15,9 +15,6 @@ const Events = (props: Props) => {
         <div className="flex flex-col gap-4 w-full h-full items-center relative">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-0 -translate-y-1/2 scale-125 w-full h-full bg-event bg-no-repeat bg-center bg-contain"></div>
           <Event />
-          <Event />
-          <Event />
-          <Event />
         </div>
       </div>
     </section>

@@ -36,6 +36,9 @@ module.exports = {
       animation: {
         rightToLeft: "rightToLeftKf ease 0.5s",
       },
+      fontFamily: {
+        signika: "'Signika', sans-serif",
+      },
     },
   },
   plugins: [],

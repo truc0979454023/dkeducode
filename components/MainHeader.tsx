@@ -1,7 +1,7 @@
 import Button from "@/components/common/Button";
 import React, { useEffect, useState } from "react";
 import { BiSearch } from "react-icons/bi";
-import logo from "@/assets/images/logo1.png";
+import logo from "@/assets/images/logo.png";
 import Image from "next/image";
 import { GiHamburgerMenu } from "react-icons/gi";
 import Link from "next/link";
@@ -31,12 +31,18 @@ const MainHeader = ({}: Props) => {
           <Image src={logo} alt="DKeducode" className="h-full object-contain" />
         </Link>
         <div className="flex items-center gap-10">
-          <ul className="hidden lg:flex items-center font-semibold text-md gap-10 cursor-pointer ">
-            <li className="hover:text-orange-f04c23">Home</li>
-            <li className="hover:text-orange-f04c23">Course</li>
+          <ul className="hidden lg:flex items-center capitalize font-semibold text-md gap-10 cursor-pointer ">
+            <Link href={"/"}>
+              <li className="hover:text-orange-f04c23">Trang chủ</li>
+            </Link>
+            <li className="hover:text-orange-f04c23">Khóa học</li>
             <li className="hover:text-orange-f04c23">Blog</li>
-            <li className="hover:text-orange-f04c23">Pages</li>
-            <li className="hover:text-orange-f04c23">Contact</li>
+            <Link href={"/event"}>
+              <li className="hover:text-orange-f04c23">Sự kiện</li>
+            </Link>
+            <Link href={"/competition"}>
+              <li className="hover:text-orange-f04c23">Thi đấu</li>
+            </Link>
           </ul>
           <div
             onClick={() => setIsOpenMenu(!isOpenMenu)}
@@ -52,22 +58,26 @@ const MainHeader = ({}: Props) => {
                 onClick={(e) => e.stopPropagation()}
                 className="bg-gray-edeef3 w-3/4 sm:w-1/2 relative h-full animate-rightToLeft transition-all"
               >
-                <ul className="lg:hidden mt-[52px] text-gray-444 p-10 flex flex-col items-center font-semibold text-md gap-10 cursor-pointer ">
+                <ul className="lg:hidden mt-[52px] capitalize text-gray-444 p-10 flex flex-col items-center font-semibold text-md gap-10 cursor-pointer ">
                   <li className="hover:text-orange-f04c23 border-b w-full flex justify-center border-gray-300 px-10">
-                    Home
+                    Trang chủ
                   </li>
                   <li className="hover:text-orange-f04c23 border-b w-full flex justify-center border-gray-300 px-10">
-                    Course
+                    Khóa học
                   </li>
                   <li className="hover:text-orange-f04c23 border-b w-full flex justify-center border-gray-300 px-10">
                     Blog
                   </li>
-                  <li className="hover:text-orange-f04c23 border-b w-full flex justify-center border-gray-300 px-10">
-                    Pages
-                  </li>
-                  <li className="hover:text-orange-f04c23 border-b w-full flex justify-center border-gray-300 px-10">
-                    Contact
-                  </li>
+                  <Link href={"/event"} className="w-full">
+                    <li className="hover:text-orange-f04c23 border-b w-full flex justify-center border-gray-300 px-10">
+                      Sự kiện
+                    </li>
+                  </Link>
+                  <Link href={"/competition"} className="w-full">
+                    <li className="hover:text-orange-f04c23 border-b w-full flex justify-center border-gray-300 px-10">
+                      Thi đấu
+                    </li>
+                  </Link>
                 </ul>
                 <div className="absolute w-full items-center flex p-4 -bottom-13 right-0 rounded-lg">
                   <input
@@ -83,7 +93,7 @@ const MainHeader = ({}: Props) => {
           <div className="flex w-auto items-center gap-10">
             <div className="hidden lg:block">
               <Button className="bg-blue-500 text-white after:bg-blue-500">
-                Contact Us
+                Liện hệ chúng tôi
               </Button>
             </div>
             <div className="relative group">
