@@ -162,7 +162,7 @@ const Course = (props: Props) => {
 
   return (
     <div className="mt-[170px] bg-gray-edeef3 min-h-screen">
-      <section className="min-h-screen flex items-center py-32 bg-white">
+      <section className="min-h-screen flex items-center py-32 bg-gray-edeef3">
         <div className="max-w-screen-xl m-auto w-[95%] flex flex-col gap-16 items-center justify-center">
           <div className="flex justify-between w-full flex-col xl:flex-row gap-16">
             <div className="">
