@@ -49,7 +49,7 @@ const Footer = (props: Props) => {
           </div>
           <div className="flex flex-col sm:flex-row gap-16 col-span-1 w-full items-start justify-start md:justify-center">
             <div className="flex flex-col gap-6 justify-center">
-              <h5 className="font-semibold text-xl">Company</h5>
+              <h5 className="font-semibold text-xl">Pages</h5>
               <ul className="text-sm flex flex-col gap-4 text-gray-400">
                 <Link href={"/"}>
                   <li className="hover:text-white cursor-pointer">Trang chủ</li>
