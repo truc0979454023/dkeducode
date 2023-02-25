@@ -32,10 +32,10 @@ const Price = ({ data }: Props) => {
           </li>
         ))}
       </ul>
-      <Button className="bg-blue-500 text-white after:bg-blue-500">
+      {/* <Button className="bg-blue-500 text-white after:bg-blue-500">
         {" "}
         Bắt đầu
-      </Button>
+      </Button> */}
     </div>
   );
 };

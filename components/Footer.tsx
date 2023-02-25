@@ -18,11 +18,11 @@ const Footer = (props: Props) => {
             Bạn sẽ trở thành chuyên gia với sự giúp đỡ của chúng tôi
           </h2>
         </div>
-        <div className="h-full w-1/2 flex items-center lg:justify-end z-10">
+        {/* <div className="h-full w-1/2 flex items-center lg:justify-end z-10">
           <Button className="bg-white text-gray-444 font-semibold after:bg-white">
             Bắt đầu
           </Button>
-        </div>
+        </div> */}
         <div className="h-[520px] w-[520px] absolute -top-1/2 -right-32 bg-red-b71202 rounded-full z-0"></div>
       </div>
       <div className="p-5 sm:p-20 mt-[144px] sm:mt-[120px] md:mt-[92px] text-white">

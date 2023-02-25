@@ -1,6 +1,7 @@
 import intro_image1 from "@/assets/images/hero-1.jpg";
 import intro_image2 from "@/assets/images/hero-sm-1.jpg";
 import Image from "next/image";
+import Link from "next/link";
 import Button from "../common/Button";
 
 type Props = {};
@@ -19,7 +20,9 @@ const Intro = (props: Props) => {
             của họ.
           </p>
           <div className="flex justify-center md:justify-start">
-            <Button>Tìm hiểu các khóa học</Button>
+            <Link href={"/course"}>
+              <Button>Tìm hiểu các khóa học</Button>
+            </Link>
           </div>
         </div>
         <div className="flex-1 flex justify-center sm:justify-between gap-8 relative mb-14 md:mb-0">

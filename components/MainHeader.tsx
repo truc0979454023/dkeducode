@@ -42,9 +42,9 @@ const MainHeader = ({}: Props) => {
             <Link href={"/event"}>
               <li className="hover:text-orange-f04c23">Sự kiện</li>
             </Link>
-            {/* <Link href={"/competition"}>
+            <Link href={"/competition"}>
               <li className="hover:text-orange-f04c23">Thi đấu</li>
-            </Link> */}
+            </Link>
           </ul>
           <div
             onClick={() => setIsOpenMenu(!isOpenMenu)}
@@ -96,7 +96,7 @@ const MainHeader = ({}: Props) => {
               </div>
             </div>
           </div>
-          <div className="flex w-auto items-center gap-10">
+          {/* <div className="flex w-auto items-center gap-10">
             <div className="hidden lg:block">
               <Button className="bg-blue-500 text-white after:bg-blue-500">
                 Liện hệ chúng tôi
@@ -113,7 +113,7 @@ const MainHeader = ({}: Props) => {
                 <BiSearch className="text-2xl absolute top-1/2 right-6 -translate-y-1/2 cursor-pointer hover:text-orange-f04c23" />
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </div>
     </header>
