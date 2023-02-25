@@ -10,6 +10,8 @@ import course7 from "@/assets/images/courses/Excel Data Scraping with VBA and Se
 import course8 from "@/assets/images/courses/Excel Data Scraping with VBA and Selenium.png";
 import course9 from "@/assets/images/courses/Excel Dynamic Reports with VBA & SQL.png";
 import course10 from "@/assets/images/courses/Python for Data Analysis_ A Comprehensive Guide.png";
+import Link from "next/link";
+import { FiArrowRight } from "react-icons/fi";
 
 type Props = {};
 
@@ -113,12 +115,20 @@ const Courses = (props: Props) => {
               chúng tôi
             </p>
           </div>
-          <ul className="flex flex-wrap justify-center gap-8 items-end font-medium">
+          {/* <ul className="flex flex-wrap justify-center gap-8 items-end font-medium">
             {dataCategories.map((d) => (
               <li className="hover:text-orange-f04c23 cursor-pointer" key={d}>
                 {d}
               </li>
             ))}
+          </ul> */}
+          <ul className="flex flex-wrap justify-center gap-8 items-end font-medium">
+            <Link href={"/course"}>
+              <li className="hover:text-orange-f04c23 cursor-pointer flex gap-2">
+                Xem thêm
+                <FiArrowRight className="font-bold text-xl group-hover:translate-x-1 transition-all " />
+              </li>
+            </Link>
           </ul>
         </div>
 
