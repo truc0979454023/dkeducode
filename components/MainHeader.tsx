@@ -42,9 +42,9 @@ const MainHeader = ({}: Props) => {
             <Link href={"/event"}>
               <li className="hover:text-orange-f04c23">Sự kiện</li>
             </Link>
-            <Link href={"/competition"}>
+            {/* <Link href={"/competition"}>
               <li className="hover:text-orange-f04c23">Thi đấu</li>
-            </Link>
+            </Link> */}
           </ul>
           <div
             onClick={() => setIsOpenMenu(!isOpenMenu)}
