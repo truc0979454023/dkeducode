@@ -35,7 +35,7 @@ const Prices = (props: Props) => {
           </h2>
           <p className="">Không có hợp đồng. Không chi phí bất ngờ</p>
         </div>
-        <div className="rounded-lg">
+        {/* <div className="rounded-lg">
           <button
             onClick={() => setOptionPrice(0)}
             className={` ${
@@ -52,7 +52,7 @@ const Prices = (props: Props) => {
           >
             Hàng năm
           </button>
-        </div>
+        </div> */}
 
         <div className="flex flex-col  md:flex-row gap-6 w-full max-w-[95%] h-full items-center md:items-start justify-center">
           {data.map((d, index) => (

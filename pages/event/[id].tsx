@@ -4,7 +4,7 @@ import Head from "next/head";
 import Image from "next/image";
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import eventRegister from "@/assets/images/register-image.jpg";
+import eventRegister from "@/assets/images/register.png";
 import { registerUserEvent } from "../api/event/event";
 import { toast } from "react-toastify";
 import SVGLoading from "@/components/common/loading/SVGLoading";

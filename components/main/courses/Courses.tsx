@@ -1,11 +1,15 @@
 import React from "react";
-import Course from "./Course";
-import course1 from "@/assets/images/course-1.jpg";
-import course2 from "@/assets/images/course-2.jpg";
-import course3 from "@/assets/images/course-3.jpg";
-import course4 from "@/assets/images/course-4.jpg";
-import course5 from "@/assets/images/course-5.jpg";
-import course6 from "@/assets/images/course-6.jpg";
+import CourseItem from "./CourseItem";
+import course1 from "@/assets/images/courses/Advanced VBA Techniques for Excel.png";
+import course2 from "@/assets/images/courses/Build Modern Web Apps with React (2).png";
+import course3 from "@/assets/images/courses/Build Modern Web Apps with React (3).png";
+import course4 from "@/assets/images/courses/Excel Automation with VBA.png";
+import course5 from "@/assets/images/courses/Build Modern Web Apps with React.png";
+import course6 from "@/assets/images/courses/Excel Data Scraping with VBA and Selenium (2).png";
+import course7 from "@/assets/images/courses/Excel Data Scraping with VBA and Selenium (3).png";
+import course8 from "@/assets/images/courses/Excel Data Scraping with VBA and Selenium.png";
+import course9 from "@/assets/images/courses/Excel Dynamic Reports with VBA & SQL.png";
+import course10 from "@/assets/images/courses/Python for Data Analysis_ A Comprehensive Guide.png";
 
 type Props = {};
 
@@ -15,79 +19,79 @@ const Courses = (props: Props) => {
   const dataCourses = [
     {
       id: 1,
-      category: "Art & Design",
+      category: { id: "vba", name: "VBA" },
       color: "purple",
       image: course1,
       lesson: 23,
       star: 4.6,
       rating: 43,
-      title: "Become a product Manager learn the skills & job.",
-      teacher: "Jim Séchen",
+      title: "Advanced VBA Techniques for Excel",
+      teacher: "Phạm Văn Kiểu",
       oldPrice: 0,
       price: 0,
     },
     {
       id: 2,
-      category: "Art & Design",
+      category: { id: "vba", name: "VBA" },
       color: "blue",
       image: course2,
       lesson: 42,
       star: 4.8,
       rating: 53,
-      title: "Fundamentals of music theory Learn new.",
-      teacher: "Barry Tone",
+      title: "Building an Effective Internal Reporting System ",
+      teacher: "Phạm Văn Kiểu",
       oldPrice: 15,
       price: 12,
     },
     {
       id: 3,
-      category: "Development",
+      category: { id: "python", name: "Python" },
       color: "green",
       image: course3,
       lesson: 56,
       star: 4.2,
       rating: 23,
-      title: "The business Intelligence analyst Course 2022.",
-      teacher: "Elon Gated",
+      title: "Advandced Data Analysis & Visualization with Python",
+      teacher: "Phạm Văn Kiểu",
       oldPrice: 17,
       price: 14,
     },
     {
       id: 4,
-      category: "Maketing ",
+      category: { id: "vba", name: "VBA" },
       color: "yellow",
       image: course4,
       lesson: 62,
       star: 4.5,
       rating: 54,
-      title: "Build your media and Public presence.",
-      teacher: "Eleanor Fant",
+      title: "Excel Automation with VBA",
+      teacher: "Phạm Văn Kiểu",
       oldPrice: 20,
       price: 16,
     },
     {
       id: 5,
-      category: "Audio & Music",
+      category: { id: "python", name: "Python" },
       color: "red",
       image: course5,
       lesson: 33,
       star: 4.4,
       rating: 35,
-      title: "Become a product Manager learn the skills & job.",
-      teacher: "Pelican Steve",
+      title: "Build Modern Web Apps with React",
+      teacher: "Phạm Văn Kiểu",
       oldPrice: 25,
       price: 21,
     },
     {
       id: 6,
-      category: "UX Design",
+      category: { id: "vba", name: "VBA" },
       color: "orange",
       image: course6,
       lesson: 11,
       star: 5,
       rating: 65,
-      title: "Creative writing through Storytelling.",
-      teacher: "Shahnewaz Sakil",
+      title: "VBA Excel Power Skills: Full COurse Training",
+      teacher: "Phạm Văn Kiểu",
       oldPrice: 25,
       price: 22,
     },
@@ -120,7 +124,7 @@ const Courses = (props: Props) => {
 
         <div className="grid sm:grid-cols-2 xl:grid-cols-3 gap-8">
           {dataCourses.map((data) => (
-            <Course key={data.id} data={data} />
+            <CourseItem key={data.id} data={data} />
           ))}
         </div>
       </div>

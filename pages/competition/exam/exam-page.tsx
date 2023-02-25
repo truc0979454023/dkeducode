@@ -1,21 +1,18 @@
-import Input from "@/components/common/Input";
-import React, { useState, useLayoutEffect, useEffect } from "react";
-import excel from "@/assets/images/excel.jpg";
-import Image from "next/image";
-import { FaRegHandPointRight } from "react-icons/fa";
 import oclock from "@/assets/images/clock.png";
+import excel from "@/assets/images/excel.jpg";
 import logo from "@/assets/images/logo.png";
 import tick from "@/assets/images/tick.png";
-import cand from "@/assets/images/cand.png";
 import Button from "@/components/common/Button";
-import Countdown from "react-countdown";
-import Link from "next/link";
-import { useRouter } from "next/router";
-import { useForm } from "react-hook-form";
-import { useSelector, useDispatch } from "react-redux";
-import { sendAnswer } from "@/pages/api/competition/competition";
-import Cookies from "js-cookie";
+import Input from "@/components/common/Input";
 import { convertToken } from "@/redux/actions/authAction";
+import Cookies from "js-cookie";
+import Image from "next/image";
+import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
+import Countdown from "react-countdown";
+import { useForm } from "react-hook-form";
+import { FaRegHandPointRight } from "react-icons/fa";
+import { useDispatch, useSelector } from "react-redux";
 
 type Props = {};
 
@@ -39,6 +36,12 @@ const ExamPage = (props: Props) => {
   useEffect(() => {
     dispatch(convertToken(token));
   }, [token, dispatch]);
+
+  useEffect(() => {
+    if (!auth?.user) {
+      router.push("/competition/login");
+    }
+  }, [auth, router]);
 
   const Completionist = () => <span>Hết giờ!</span>;
   const renderer = ({ minutes, seconds, completed }: any) => {

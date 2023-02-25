@@ -35,14 +35,16 @@ const MainHeader = ({}: Props) => {
             <Link href={"/"}>
               <li className="hover:text-orange-f04c23">Trang chủ</li>
             </Link>
-            <li className="hover:text-orange-f04c23">Khóa học</li>
-            <li className="hover:text-orange-f04c23">Blog</li>
+            <Link href={"/course"}>
+              <li className="hover:text-orange-f04c23">Khóa học</li>
+            </Link>
+            {/* <li className="hover:text-orange-f04c23">Blog</li> */}
             <Link href={"/event"}>
               <li className="hover:text-orange-f04c23">Sự kiện</li>
             </Link>
-            <Link href={"/competition"}>
+            {/* <Link href={"/competition"}>
               <li className="hover:text-orange-f04c23">Thi đấu</li>
-            </Link>
+            </Link> */}
           </ul>
           <div
             onClick={() => setIsOpenMenu(!isOpenMenu)}
@@ -59,25 +61,29 @@ const MainHeader = ({}: Props) => {
                 className="bg-gray-edeef3 w-3/4 sm:w-1/2 relative h-full animate-rightToLeft transition-all"
               >
                 <ul className="lg:hidden mt-[52px] capitalize text-gray-444 p-10 flex flex-col items-center font-semibold text-md gap-10 cursor-pointer ">
-                  <li className="hover:text-orange-f04c23 border-b w-full flex justify-center border-gray-300 px-10">
-                    Trang chủ
-                  </li>
-                  <li className="hover:text-orange-f04c23 border-b w-full flex justify-center border-gray-300 px-10">
-                    Khóa học
-                  </li>
-                  <li className="hover:text-orange-f04c23 border-b w-full flex justify-center border-gray-300 px-10">
+                  <Link href={"/"} className="w-full">
+                    <li className="hover:text-orange-f04c23 border-b w-full flex justify-center border-gray-300 px-10">
+                      Trang chủ
+                    </li>
+                  </Link>
+                  <Link href={"/course"} className="w-full">
+                    <li className="hover:text-orange-f04c23 border-b w-full flex justify-center border-gray-300 px-10">
+                      Khóa học
+                    </li>
+                  </Link>
+                  {/* <li className="hover:text-orange-f04c23 border-b w-full flex justify-center border-gray-300 px-10">
                     Blog
-                  </li>
+                  </li> */}
                   <Link href={"/event"} className="w-full">
                     <li className="hover:text-orange-f04c23 border-b w-full flex justify-center border-gray-300 px-10">
                       Sự kiện
                     </li>
                   </Link>
-                  <Link href={"/competition"} className="w-full">
+                  {/* <Link href={"/competition"} className="w-full">
                     <li className="hover:text-orange-f04c23 border-b w-full flex justify-center border-gray-300 px-10">
                       Thi đấu
                     </li>
-                  </Link>
+                  </Link> */}
                 </ul>
                 <div className="absolute w-full items-center flex p-4 -bottom-13 right-0 rounded-lg">
                   <input

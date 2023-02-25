@@ -1,12 +1,5 @@
-import course1 from "@/assets/images/course-1.jpg";
-import course2 from "@/assets/images/course-2.jpg";
-import course3 from "@/assets/images/course-3.jpg";
-import course4 from "@/assets/images/course-4.jpg";
-import course5 from "@/assets/images/course-5.jpg";
-import course6 from "@/assets/images/course-6.jpg";
-import course_video from "@/assets/images/course-video.jpg";
 import Button from "@/components/common/Button";
-import Course from "@/components/main/course/Course";
+import Course from "@/components/main/courses/CourseItem";
 import Head from "next/head";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -20,6 +13,18 @@ import { HiTag } from "react-icons/hi";
 import { MdLanguage, MdOutlineDescription } from "react-icons/md";
 import { RiBook3Line } from "react-icons/ri";
 import { RxTriangleRight } from "react-icons/rx";
+
+import course1 from "@/assets/images/courses/Advanced VBA Techniques for Excel.png";
+import course2 from "@/assets/images/courses/Build Modern Web Apps with React (2).png";
+import course3 from "@/assets/images/courses/Build Modern Web Apps with React (3).png";
+import course4 from "@/assets/images/courses/Excel Automation with VBA.png";
+import course5 from "@/assets/images/courses/Build Modern Web Apps with React.png";
+import course6 from "@/assets/images/courses/Excel Data Scraping with VBA and Selenium (2).png";
+import course7 from "@/assets/images/courses/Excel Data Scraping with VBA and Selenium (3).png";
+import course8 from "@/assets/images/courses/Excel Data Scraping with VBA and Selenium.png";
+import course9 from "@/assets/images/courses/Excel Dynamic Reports with VBA & SQL.png";
+import course10 from "@/assets/images/courses/Python for Data Analysis_ A Comprehensive Guide.png";
+import course_video from "@/assets/images/course-video.jpg";
 
 type Props = {};
 
@@ -303,7 +308,7 @@ const CourseDetail = (props: Props) => {
                   </li>
                   <li className="border-b border-gray-200 flex items-center gap-3 text-sm p-4">
                     <MdLanguage className="text-xl text-orange-f04c23" />
-                    <p className="font-medium">Language :</p>
+                    <p className="font-medium">Language:</p>
                     <p>English</p>
                   </li>
                 </ul>
@@ -311,7 +316,7 @@ const CourseDetail = (props: Props) => {
                 <div className="flex justify-center w-full">
                   <Button className="bg-blue-500 text-white after:bg-blue-500">
                     Enroll{" "}
-                    <FiArrowRight className="font-bold text-xl group-hover:translate-x-1 transition-all " />
+                    <FiArrowRight className="font-bold text-xl group-hover:translate-x-1 transition-all" />
                   </Button>
                 </div>
               </div>
@@ -328,79 +333,131 @@ export default CourseDetail;
 const dataCourses = [
   {
     id: 1,
-    category: "Art & Design",
+    category: { id: "vba", name: "VBA" },
     color: "purple",
     image: course1,
     lesson: 23,
     star: 4.6,
     rating: 43,
-    title: "Become a product Manager learn the skills & job.",
-    teacher: "Jim Séchen",
+    title: "Advanced VBA Techniques for Excel",
+    teacher: "Phạm Văn Kiểu",
     oldPrice: 0,
     price: 0,
   },
   {
     id: 2,
-    category: "Art & Design",
+    category: { id: "vba", name: "VBA" },
     color: "blue",
     image: course2,
     lesson: 42,
     star: 4.8,
     rating: 53,
-    title: "Fundamentals of music theory Learn new.",
-    teacher: "Barry Tone",
+    title: "Building an Effective Internal Reporting System ",
+    teacher: "Phạm Văn Kiểu",
     oldPrice: 15,
     price: 12,
   },
   {
     id: 3,
-    category: "Development",
+    category: { id: "python", name: "Python" },
     color: "green",
     image: course3,
     lesson: 56,
     star: 4.2,
     rating: 23,
-    title: "The business Intelligence analyst Course 2022.",
-    teacher: "Elon Gated",
+    title: "Advandced Data Analysis & Visualization with Python",
+    teacher: "Phạm Văn Kiểu",
     oldPrice: 17,
     price: 14,
   },
   {
     id: 4,
-    category: "Maketing ",
+    category: { id: "vba", name: "VBA" },
     color: "yellow",
     image: course4,
     lesson: 62,
     star: 4.5,
     rating: 54,
-    title: "Build your media and Public presence.",
-    teacher: "Eleanor Fant",
+    title: "Excel Automation with VBA",
+    teacher: "Phạm Văn Kiểu",
     oldPrice: 20,
     price: 16,
   },
   {
     id: 5,
-    category: "Audio & Music",
+    category: { id: "python", name: "Python" },
     color: "red",
     image: course5,
     lesson: 33,
     star: 4.4,
     rating: 35,
-    title: "Become a product Manager learn the skills & job.",
-    teacher: "Pelican Steve",
+    title: "Build Modern Web Apps with React",
+    teacher: "Phạm Văn Kiểu",
     oldPrice: 25,
     price: 21,
   },
   {
     id: 6,
-    category: "UX Design",
+    category: { id: "vba", name: "VBA" },
     color: "orange",
     image: course6,
     lesson: 11,
     star: 5,
     rating: 65,
-    title: "Creative writing through Storytelling.",
-    teacher: "Shahnewaz Sakil",
+    title: "VBA Excel Power Skills: Full COurse Training",
+    teacher: "Phạm Văn Kiểu",
+    oldPrice: 25,
+    price: 22,
+  },
+  {
+    id: 7,
+    category: { id: "python", name: "Python" },
+    color: "orange",
+    image: course7,
+    lesson: 11,
+    star: 5,
+    rating: 65,
+    title: "Beginner's Guide to Python Programming",
+    teacher: "Phạm Văn Kiểu",
+    oldPrice: 25,
+    price: 22,
+  },
+  {
+    id: 8,
+    category: { id: "vba", name: "VBA" },
+    color: "orange",
+    image: course8,
+    lesson: 11,
+    star: 5,
+    rating: 65,
+    title: "Excel Dât Scraping with VBA and Selenium",
+    teacher: "Phạm Văn Kiểu",
+    oldPrice: 25,
+    price: 22,
+  },
+  {
+    id: 9,
+    category: { id: "vba", name: "VBA" },
+    color: "orange",
+    image: course9,
+    lesson: 11,
+    star: 5,
+    rating: 65,
+    title: "Excel Dynamic Reports with VBA & SQL",
+    teacher: "Phạm Văn Kiểu",
+    oldPrice: 25,
+    price: 22,
+  },
+  {
+    id: 10,
+    category: { id: "vba", name: "VBA" },
+    color: "orange",
+    image: course10,
+    lesson: 11,
+    star: 5,
+    rating: 65,
+    title: "Python for Data Anilysis",
+    teacher: "Phạm Văn Kiểu",
     oldPrice: 25,
     price: 22,
   },

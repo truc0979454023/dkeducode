@@ -11,7 +11,6 @@ const Competition = (props: Props) => {
   useEffect(() => {
     async function fetchData() {
       const res = await getListCompetition();
-      console.log(res);
       setCompetition(res.data.data);
     }
     fetchData();
@@ -48,16 +47,5 @@ const Competition = (props: Props) => {
     </div>
   );
 };
-
-// export async function getServerSideProps() {
-//   const res = await getListExamSubject();
-//   console.log(res);
-//   return {
-//     // props: {
-//     //   products: res.products,
-//     //   result: res.result,
-//     // },
-//   };
-// }
 
 export default Competition;

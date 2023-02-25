@@ -1,5 +1,5 @@
 import Categories from "@/components/main/category/Categories";
-import Courses from "@/components/main/course/Courses";
+import Courses from "@/components/main/courses/Courses";
 import Events from "@/components/main/events/Events";
 import Intro from "@/components/main/Intro";
 import Prices from "@/components/main/price/Prices";

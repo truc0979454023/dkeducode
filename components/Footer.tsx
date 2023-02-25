@@ -5,6 +5,7 @@ import { BsInstagram, BsTwitter } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
 import { AiOutlineArrowRight } from "react-icons/ai";
 import Button from "./common/Button";
+import Link from "next/link";
 
 type Props = {};
 
@@ -50,11 +51,17 @@ const Footer = (props: Props) => {
             <div className="flex flex-col gap-6 justify-center">
               <h5 className="font-semibold text-xl">Company</h5>
               <ul className="text-sm flex flex-col gap-4 text-gray-400">
-                <li className="hover:text-white cursor-pointer">Trang chủ</li>
-                <li className="hover:text-white cursor-pointer">Khóa học</li>
-                <li className="hover:text-white cursor-pointer">Blog</li>
-                <li className="hover:text-white cursor-pointer">Sự kiện</li>
-                <li className="hover:text-white cursor-pointer">Thi đấu</li>
+                <Link href={"/"}>
+                  <li className="hover:text-white cursor-pointer">Trang chủ</li>
+                </Link>
+                <Link href={"/course"}>
+                  <li className="hover:text-white cursor-pointer">Khóa học</li>
+                </Link>
+                {/* <li className="hover:text-white cursor-pointer">Blog</li> */}
+                <Link href={"/event"}>
+                  <li className="hover:text-white cursor-pointer">Sự kiện</li>
+                </Link>
+                {/* <li className="hover:text-white cursor-pointer">Thi đấu</li> */}
               </ul>
             </div>
 

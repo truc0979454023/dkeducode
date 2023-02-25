@@ -56,7 +56,6 @@ const Login = (props: Props) => {
 
       dispatch(
         login({
-          phone: data.phone,
           candidatesid: data.candidateId,
         })
       );
@@ -85,7 +84,7 @@ const Login = (props: Props) => {
           >
             <div className="flex flex-col w-full justify-center items-center gap-14">
               <div className="w-full flex flex-col gap-10 items-center max-w-[480px]">
-                <div className="w-full">
+                {/* <div className="w-full">
                   <Input
                     size="lg"
                     required={true}
@@ -102,7 +101,7 @@ const Login = (props: Props) => {
                       {errors.phone?.message}
                     </p>
                   )}
-                </div>
+                </div> */}
 
                 <div className="w-full">
                   <Input
