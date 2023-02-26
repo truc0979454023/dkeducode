@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import SVGLoading from "@/components/common/loading/SVGLoading";
 import { Router, useRouter } from "next/router";
 import { useDispatch } from "react-redux";
+import Link from "next/link";
 
 type Props = {};
 type Inputs = {
@@ -71,12 +72,12 @@ const Register = (props: Props) => {
         <div className="lg:h-full w-full flex md:flex-row flex-col-reverse justify-center items-start gap-4">
           <form
             onSubmit={handleSubmit(onSubmit)}
-            className="lg:w-1/2 h-full flex flex-col justify-center mt-4 items-center gap-14 "
+            className="lg:w-1/2 h-full flex flex-col justify-center mt-4 items-center gap-8 "
           >
-            <h1 className="text-[42px] font-semibold uppercase text-center">
+            <h1 className="lg:text-[30px] text-[30px] font-semibold uppercase text-center">
               Đăng ký tham gia
             </h1>
-            <div className="flex flex-col w-full justify-center items-center gap-14">
+            <div className="flex flex-col w-full justify-center items-center gap-8">
               <div className="w-full flex flex-col items-center max-w-[480px]">
                 <div className="w-full">
                   <Input
@@ -145,7 +146,7 @@ const Register = (props: Props) => {
                     size="lg"
                     type={"text"}
                     readOnly={loading}
-                    label="Trường"
+                    label="Nơi công tác"
                     register={register("school")}
                     id="school"
                   />
@@ -176,18 +177,42 @@ const Register = (props: Props) => {
               </div>
             </div>
             <Button
-              className={` text-white  ${
-                loading ? "bg-gray-500" : "bg-blue-500 after:bg-blue-500"
-              }`}
+              className={` text-white  ${loading ? "bg-gray-500" : "bg-blue-500 after:bg-blue-500"
+                }`}
             >
               {loading && <SVGLoading size={20} />}
               Đăng ký
             </Button>
 
-            <p className="uppercase text-4xl text-yellow-600 text-center font-signika">
+            {/* <p className="uppercase text-4xl text-yellow-600 text-center font-signika">
               Hãy sẵn sàng chinh phục để trở thành quán quân <br /> mùa đầu tiên
               của &#34;Excel talent&#34;
+            </p> */}
+            <div className="flex flex-col w-full gap-6">
+              <p className="text-4xl text-yellow-600 font-signika">Đến với cuộc thi bạn sẽ nhận được</p>
+              <div className="flex flex-col w-full gap-1">
+                <p className="text-2xl text-Slate-900 font-signika">- Nâng cao kiến thức Excel phục vụ học tập và làm việc</p>
+                <p className="text-2xl text-Slate-900 font-signika">- Sân chơi thể thao điện tử trí tuệ</p>
+                <p className="text-2xl text-Slate-900 font-signika">- Giao lưu kết bạn cùng đam mê Excel</p>
+                <p className="text-2xl text-Slate-900 font-signika">- Công nhận thành tích, giá trị bản thân</p>
+              </div>
+              <div className="flex flex-col w-full gap-6">
+                <p className="text-2xl text-center text-yellow-600 font-signika ">HÃY SẴN SÀNG CHINH PHỤC ĐỂ TRỞ THÀNH QUÁN QUÂN MÙA ĐẦU TIÊN CỦA “EXCEL TALENT”</p>
+                <p className="text-2xl text-center text-Slate-900 font-signika">Mời bạn tham gia nhóm ôn luyện kiến thức Excel (miễn phí) cùng đội ngũ Giảng viên - Trợ giảng KD Educode</p>
+              </div>
+              <p>
+              <p className="text-xl text-center">
+              Zalo:
+              <Link
+                href={"https://zalo.me/g/vmupyt831"}
+                target="_blank"
+                className="text-blue-500 hover:underline"
+              >
+                https://zalo.me/g/vmupyt831
+              </Link>
             </p>
+              </p>
+            </div>
           </form>
 
           <div className="lg:w-1/2 h-full py-10 lg:p-0 flex items-end">
