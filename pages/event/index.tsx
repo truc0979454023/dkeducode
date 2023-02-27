@@ -16,7 +16,7 @@ const Events = (props: Props) => {
             <h2 className="text-[36px] leading-[1] capitalize font-bold">
               Sự kiện hiện tại
             </h2>
-            <p className="">Chúng tôi có 1 sự kiện.</p>
+            <p className="">Chúng tôi có 2 sự kiện.</p>
           </div>
 
           <div className="flex flex-col gap-4 w-full h-full items-center relative">

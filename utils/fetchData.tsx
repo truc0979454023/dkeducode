@@ -11,6 +11,20 @@ export const getDataAPI = async (url: string, token?: string) => {
   return res;
 };
 
+
+export const getDataAPIParam = async (url: string, param?: any, token?: string) => {
+  const res = await axios.get(`/${url}`, {
+    headers: {
+      accept: "application/json",
+      "Content-Type": "application/json",
+      Authorization: "Bearer " + token,
+    },
+    params: param
+  });
+  return res;
+};
+
+
 export const postDataAPI = async (url: string, data: any, token?: string) => {
   const res = await axios.post(`/${url}`, data, {
     headers: {

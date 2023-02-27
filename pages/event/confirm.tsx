@@ -2,6 +2,8 @@ import Head from "next/head";
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
 import excel from "@/assets/images/excel.png";
+import QRCode_kieu from "@/assets/images/QR_bank_aKieu.png";
+import QRCode_ha from "@/assets/images/QR_bank_CHa.png";
 import Link from "next/link";
 import { useSelector } from "react-redux";
 
@@ -38,11 +40,26 @@ const Confirm = (props: Props) => {
               {id}
             </span>
           </div>
-
-          <div>
-            <p className="text-xl text-center">
-              Mời bạn tham gia cùng các chuyên gia ôn luyện Excel để trở thành
-              Quán quân nhé
+          <div className="flex flex-col gap-4">
+            <p className="text-xl">Lệ phí thi 50.000 VND/Người</p>
+            <p className="text-xl">Thí sinh vui lòng chuyển khoản với nội dung: Mã số báo thi + Số điện thoại đăng ký thi</p>
+            <div className="flex flex-col gap-2">
+              <p className="text-xl">Thông tin chuyển khoản:</p>
+              <div className="pl-3">
+                <div className="text-xl flex flex-col-2 gap-2">
+                  <div>
+                  <Image src={QRCode_kieu} alt="" className="w-[5em]" />
+                  </div>
+                  <div>
+                    <p>Ngân hàng: VPBank - Việt Nam Thịnh Vượng</p>
+                    <p>STK: 112200541</p>
+                    <p>Người thụ hưởng: Phạm Văn Kiểu</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <p className="text-xl ">
+              Mời bạn tham gia cùng các chuyên gia ôn luyện Excel để trở thành Quán quân nhé
             </p>
             <p className="text-xl">
               Zalo:
