@@ -10,11 +10,7 @@ import { toast } from "react-toastify";
 import SVGLoading from "@/components/common/loading/SVGLoading";
 import { useRouter } from "next/router";
 import { useDispatch } from "react-redux";
-import {
-  getCompetitionDetail,
-  getListCompetition,
-} from "../api/competition/competition";
-import Link from "next/link";
+import { getListCompetition } from "../api/competition/competition";
 
 type Props = {};
 type Inputs = {
@@ -38,7 +34,8 @@ const Register = (props: Props) => {
   const route = useRouter();
   const [loading, setLoading] = useState(false);
   const dispatch = useDispatch<any>();
-  const [eventDetail, setEventDetail] = useState<any>();
+
+  const [pathName, setPathName] = useState<string>();
 
   const [events, setEvents] = useState([]);
 
@@ -50,24 +47,15 @@ const Register = (props: Props) => {
     fetchData();
   }, []);
 
-  const pathName = useMemo(() => {
-    return route.query.id;
+  useEffect(() => {
+    setPathName(
+      route.pathname.split("/")[route.pathname.split("/").length - 1]
+    );
   }, [route]);
 
   const event: any = useMemo(() => {
     return events.find((event: any) => event.urlpath === pathName);
   }, [events, pathName]);
-
-  useEffect(() => {
-    async function fetchData() {
-      if (event) {
-        const res = await getCompetitionDetail(event?.examID);
-        setEventDetail(res.data);
-      }
-    }
-
-    fetchData();
-  }, [event]);
 
   const onSubmit = async (data: any) => {
     try {
@@ -78,7 +66,7 @@ const Register = (props: Props) => {
         e_phone: data.phone,
         e_school: data.school,
         e_specialized: data.majob,
-        examID: event?.examID,
+        ExamID: event?.examID,
       });
       setLoading(false);
       if (res.data.status_code === 204) {
@@ -89,8 +77,7 @@ const Register = (props: Props) => {
       }
       dispatch({ type: "EVENT", payload: res.data.data.CandidatesID });
       localStorage.setItem("id", JSON.stringify(res.data.data.CandidatesID));
-
-      route.push(`/event/confirm?event=${pathName}`);
+      route.push("/event/confirm");
     } catch (error) {
       setLoading(false);
       return toast.error("Xảy ra lỗi! Thử lại sau", {
@@ -105,7 +92,7 @@ const Register = (props: Props) => {
         <title>Event Register</title>
       </Head>
       <div className="max-w-screen-xl h-full mx-auto w-[95%] flex flex-col gap-16 items-center justify-start pb-32">
-        <div className="lg:h-full w-full flex md:flex-row flex-col-reverse justify-center items-center gap-4">
+        <div className="lg:h-full w-full flex md:flex-row flex-col-reverse justify-center items-start gap-4">
           <form
             onSubmit={handleSubmit(onSubmit)}
             className="lg:w-1/2 h-full flex flex-col justify-center mt-4 items-center gap-14 "
@@ -221,58 +208,10 @@ const Register = (props: Props) => {
               Đăng ký
             </Button>
 
-            {/* <p className="uppercase text-4xl text-yellow-600 text-center font-signika">
+            <p className="uppercase text-4xl text-yellow-600 text-center font-signika">
               Hãy sẵn sàng chinh phục để trở thành quán quân <br /> mùa đầu tiên
               của &#34;Excel talent&#34;
-            </p> */}
-
-            {eventDetail?.examID === 1 && (
-              <div className="flex flex-col w-full gap-6 ">
-                <p className="text-4xl text-yellow-600 font-signika text-center">
-                  Đến với cuộc thi bạn sẽ nhận được
-                </p>
-                <div className="flex flex-col w-full gap-1">
-                  <p className="text-2xl text-Slate-900 font-signika">
-                    - Nâng cao kiến thức Excel phục vụ học tập và làm việc
-                  </p>
-                  <p className="text-2xl text-Slate-900 font-signika">
-                    - Sân chơi thể thao điện tử trí tuệ
-                  </p>
-                  <p className="text-2xl text-Slate-900 font-signika">
-                    - Giao lưu kết bạn cùng đam mê Excel
-                  </p>
-                  <p className="text-2xl text-Slate-900 font-signika">
-                    - Công nhận thành tích, giá trị bản thân
-                  </p>
-                </div>
-                <div className="flex flex-col w-full gap-6">
-                  <p className="text-2xl text-center text-yellow-600 font-signika ">
-                    HÃY SẴN SÀNG CHINH PHỤC ĐỂ TRỞ THÀNH QUÁN QUÂN MÙA ĐẦU TIÊN
-                    CỦA “EXCEL TALENT”
-                  </p>
-                  <p className="text-2xl text-center text-Slate-900 font-signika">
-                    Mời bạn tham gia nhóm ôn luyện kiến thức Excel cùng đội ngũ
-                    Giảng viên - Trợ giảng KD Educode
-                  </p>
-                </div>
-                <div>
-                  <p className="text-xl text-center">
-                    Mời bạn tham gia cùng các chuyên gia ôn luyện Excel để trở
-                    thành Quán quân nhé!
-                  </p>
-                  <p className="text-xl text-center">
-                    Zalo:
-                    <Link
-                      href={"https://zalo.me/g/vmupyt831"}
-                      target="_blank"
-                      className="text-blue-500 hover:underline"
-                    >
-                      https://zalo.me/g/vmupyt831
-                    </Link>
-                  </p>
-                </div>
-              </div>
-            )}
+            </p>
           </form>
 
           <div className="lg:w-1/2 h-full py-10 lg:p-0 flex items-end">
@@ -281,13 +220,7 @@ const Register = (props: Props) => {
                 <Image alt="" src={eventRegister2} className="w-full" />
               </div> */}
               <div className=" top-0 left-0 w-full h-full">
-                <Image
-                  src={`data:image/jpeg;base64, ${eventDetail?.img_createExamID_re?.img64}`}
-                  alt=""
-                  className="w-full"
-                  width={140}
-                  height={140}
-                />
+                <Image alt="" src={eventRegister} className="w-full" />
               </div>
             </div>
           </div>

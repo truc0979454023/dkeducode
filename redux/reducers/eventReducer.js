@@ -2,13 +2,13 @@ import { GLOBALTYPES } from "../GlobalTypes";
 
 const initialState = {};
 
-const featureReducer = (state = initialState, action) => {
+const eventReducer = (state = initialState, action) => {
   switch (action.type) {
-    case GLOBALTYPES.FEATURE:
+    case GLOBALTYPES.EVENT:
       return action.payload;
     default:
       return state;
   }
 };
 
-export default featureReducer;
+export default eventReducer;

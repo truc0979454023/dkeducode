@@ -1,17 +1,19 @@
 import Button from "@/components/common/Button";
 import Head from "next/head";
 import Link from "next/link";
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { convertToken } from "@/redux/actions/authAction";
 import Cookies from "js-cookie";
+import { getListExamType } from "@/pages/api/competition/competition";
+import { setExamID } from "@/redux/actions/competitionAction";
 
 type Props = {};
 
 const Exam = (props: Props) => {
   const router = useRouter();
-  const { auth }: any = useSelector<any>((state) => state);
+  const { auth, competition }: any = useSelector<any>((state) => state);
   const token = Cookies.get("token");
   const dispatch = useDispatch<any>();
 
@@ -24,6 +26,31 @@ const Exam = (props: Props) => {
       router.push("/competition/login");
     }
   }, [auth, router]);
+
+  function getRandomInt(min: number, max: number) {
+    return Math.floor(Math.random() * (max - min + 1) + min);
+  }
+
+  const handleStartExam = async () => {
+    try {
+      const res = await getListExamType(
+        competition.examID || Number(localStorage.getItem("competitionID"))
+      );
+
+      dispatch(
+        setExamID(
+          res.data.data[getRandomInt(0, res.data.data.length - 1)].codeID
+        )
+      );
+      localStorage.setItem(
+        "examID",
+        res.data.data[getRandomInt(0, res.data.data.length - 1)].codeID
+      );
+      router.push("/competition/exam/exam-page");
+    } catch (error) {
+      console.log("lỗi");
+    }
+  };
 
   return (
     <div className="mt-[170px] bg-gray-edeef3 min-h-screen flex items-center">
@@ -70,9 +97,7 @@ const Exam = (props: Props) => {
           </div>
         </div>
         <div className="text-2xl">
-          <Link href={"/competition/exam/exam-page?page=1"}>
-            <Button>BẮT ĐẦU</Button>
-          </Link>
+          <Button onClick={handleStartExam}>BẮT ĐẦU</Button>
         </div>
       </div>
     </div>

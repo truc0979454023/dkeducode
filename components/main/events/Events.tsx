@@ -16,7 +16,19 @@ const Events = (props: Props) => {
 
         <div className="flex flex-col gap-4 w-full h-full items-center relative">
           <div className="absolute top-1/2 left-1/2 -translate-x-1/2 z-0 -translate-y-1/2 scale-125 w-full h-full bg-event bg-no-repeat bg-center bg-contain"></div>
-          <Event />
+          <Event
+            time="Chủ nhật, 5 tháng 3 năm 2023 |"
+            location="CoffeEsport Center"
+            title="Cafe Excel. Khám phá tính năng vượt trội của excel 365"
+            link="https://docs.google.com/forms/d/e/1FAIpQLScme9H8JPTGE8iiN2TGZnf-XU611DfA-p4CE3UcZPJHAZw22A/viewform?embedded=true"
+          />
+          <Event
+            time=" Chủ Nhật, Ngày 19 tháng 3 năm 2023 | 8:00 am |"
+            location="Nhà văn hóa sinh viên
+            ĐHQG TP Hồ Chí Minh Esport Center Esport Center"
+            title="Cuộc thi &#34;Tìm kiếm tài năng Excel &#34;"
+            link="/event/cuoc-thi-tim-kiem-tai-nang-excel"
+          />
         </div>
       </div>
     </section>

@@ -36,14 +36,21 @@ const Footer = (props: Props) => {
               nhất.
             </p>
             <ul className="flex items-center gap-4">
-              <li className="h-12 w-12 cursor-pointer bg-amber-800 rounded-md flex justify-center items-center text-white ">
+              {/* <li className="h-12 w-12 cursor-pointer bg-amber-800 rounded-md flex justify-center items-center text-white ">
                 <BsInstagram className="text-lg" />
               </li>
               <li className="h-12 w-12 cursor-pointer bg-blue-500 rounded-md flex justify-center items-center text-white ">
                 <BsTwitter className="text-lg" />
-              </li>
+              </li> */}
               <li className="h-12 w-12 cursor-pointer bg-blue-800 rounded-md flex justify-center items-center text-white ">
-                <FaFacebookF className="text-lg" />
+                <Link
+                  href={
+                    "https://www.facebook.com/profile.php?id=100090843961380"
+                  }
+                  target="_blank"
+                >
+                  <FaFacebookF className="text-lg" />
+                </Link>
               </li>
             </ul>
           </div>

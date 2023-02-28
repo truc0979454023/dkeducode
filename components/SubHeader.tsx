@@ -3,6 +3,7 @@ import { BsInstagram, BsTwitter } from "react-icons/bs";
 import { FaFacebookF } from "react-icons/fa";
 import { CgPhone } from "react-icons/cg";
 import { MdAlternateEmail } from "react-icons/md";
+import Link from "next/link";
 
 type Props = {};
 
@@ -30,21 +31,26 @@ const SubHeader = (props: Props) => {
           </li>
           <li className="hidden lg:flex items-center gap-1">
             <MdAlternateEmail className="text-2xl" />
-            <p>info@kdeducode.com</p>
+            <p>info@kdeducode.vn</p>
           </li>
         </ul>
 
         <div className="flex items-center gap-10 text-sm font-medium z-10">
           <p className="hidden lg:block">Thứ 2 - Chủ nhật | 8:00am - 22:00am</p>
           <ul className="flex items-center sm:gap-4 gap-1">
-            <li className="h-12 w-12 cursor-pointer hover:bg-amber-800 rounded-full flex justify-center items-center hover:text-white hover:border hover:border-orange-f04c23">
+            {/* <li className="h-12 w-12 cursor-pointer hover:bg-amber-800 rounded-full flex justify-center items-center hover:text-white hover:border hover:border-orange-f04c23">
               <BsInstagram className="text-lg" />
             </li>
             <li className="h-12 w-12 cursor-pointer hover:bg-blue-500 rounded-full flex justify-center items-center hover:text-white hover:border hover:border-orange-f04c23">
               <BsTwitter className="text-lg" />
-            </li>
+            </li> */}
             <li className="h-12 w-12 cursor-pointer hover:bg-blue-800 rounded-full flex justify-center items-center hover:text-white hover:border hover:border-orange-f04c23">
-              <FaFacebookF className="text-lg" />
+              <Link
+                href={"https://www.facebook.com/profile.php?id=100090843961380"}
+                target="_blank"
+              >
+                <FaFacebookF className="text-lg" />
+              </Link>
             </li>
           </ul>
         </div>
