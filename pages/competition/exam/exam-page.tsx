@@ -77,6 +77,7 @@ const ExamPage = (props: Props) => {
       );
       console.log(res);
       const url = window.URL.createObjectURL(new Blob([res.data]));
+      console.log(url);
 
       // const blob = await res.data.blob();
       // const url = URL.createObjectURL(blob);
