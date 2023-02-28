@@ -20,6 +20,7 @@ import Countdown from "react-countdown";
 import { useForm } from "react-hook-form";
 import { FaRegHandPointRight } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
+import { saveAs } from "file-saver";
 
 type Props = {};
 
@@ -74,16 +75,17 @@ const ExamPage = (props: Props) => {
         competition.codeID || Number(localStorage.getItem("competitionID")),
         competition.examID || Number(localStorage.getItem("examID"))
       );
-      // const url = window.URL.createObjectURL(new Blob([res.data]));
+      console.log(res);
+      const url = window.URL.createObjectURL(new Blob([res.data]));
 
-      const blob = await res.data.blob();
-      const url = URL.createObjectURL(blob);
-
+      // const blob = await res.data.blob();
+      // const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", `question_kdeducode.xlsx`);
+      link.setAttribute("download", "filename.xlsx");
       document.body.appendChild(link);
       link.click();
+      link.remove();
 
       // URL.revokeObjectURL(url);
     } catch (error) {}
