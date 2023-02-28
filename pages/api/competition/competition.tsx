@@ -1,4 +1,4 @@
-import { getDataAPI, postDataAPI } from "@/utils/fetchData";
+import { downloadDataAPI, getDataAPI, postDataAPI } from "@/utils/fetchData";
 import {
   convertTokenUserEventURL,
   getCompetitionDetailURL,
@@ -43,7 +43,11 @@ export const getDownloadFileExam = async (
   examID: number,
   token?: string | undefined
 ) => {
-  return await postDataAPI(getDownloadFileExamURL(codeID, examID), null, token);
+  return await downloadDataAPI(
+    getDownloadFileExamURL(codeID, examID),
+    null,
+    token
+  );
 };
 
 export const getListQuestion = async (

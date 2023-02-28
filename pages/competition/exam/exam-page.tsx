@@ -79,16 +79,12 @@ const ExamPage = (props: Props) => {
       const url = window.URL.createObjectURL(new Blob([res.data]));
       console.log(url);
 
-      // const blob = await res.data.blob();
-      // const url = URL.createObjectURL(blob);
       const link = document.createElement("a");
       link.href = url;
       link.setAttribute("download", "filename.xlsx");
       document.body.appendChild(link);
       link.click();
       link.remove();
-
-      // URL.revokeObjectURL(url);
     } catch (error) {}
   };
 
