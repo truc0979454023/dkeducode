@@ -53,7 +53,8 @@ const Exam = (props: Props) => {
 
       const res1 = await startCompetition({
         CandidatesID: auth.user.CandidatesID,
-        examID: res.data.data[getRandomInt(0, res.data.data.length - 1)].codeID,
+        examID:
+          competition.examID || Number(localStorage.getItem("competitionID")),
         codeID: competition.codeID || Number(localStorage.getItem("examID")),
       });
       if (res1.data.status_code === 204) {
