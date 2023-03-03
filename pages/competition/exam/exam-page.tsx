@@ -15,7 +15,7 @@ import { convertToken } from "@/redux/actions/authAction";
 import Cookies from "js-cookie";
 import Image from "next/image";
 import { useRouter } from "next/router";
-import { useEffect, useState, useMemo } from "react";
+import { useEffect, useState, useMemo, useRef } from "react";
 import Countdown from "react-countdown";
 import { useForm } from "react-hook-form";
 import { FaRegHandPointRight } from "react-icons/fa";
@@ -33,6 +33,7 @@ const ExamPage = (props: Props) => {
     formState: { errors },
   } = useForm<any>();
 
+  const formRef = useRef<any>(null);
   const { auth, competition }: any = useSelector<any>((state) => state);
   const token = Cookies.get("token");
   const dispatch = useDispatch<any>();
@@ -75,9 +76,7 @@ const ExamPage = (props: Props) => {
         competition.codeID || Number(localStorage.getItem("competitionID")),
         competition.examID || Number(localStorage.getItem("examID"))
       );
-      console.log(res);
       const url = window.URL.createObjectURL(new Blob([res.data]));
-      console.log(url);
 
       const link = document.createElement("a");
       link.href = url;
@@ -88,14 +87,11 @@ const ExamPage = (props: Props) => {
     } catch (error) {}
   };
 
-  const Completionist = () => <span>Hết giờ!</span>;
+  const Completionist = () => <span>0:0</span>;
   const renderer = ({ minutes, seconds, completed }: any) => {
     if (completed) {
-      // onSubmit();
-      // Render a completed state
       return <Completionist />;
     } else {
-      // Render a countdown
       return (
         <span>
           {minutes}:{seconds}
@@ -141,12 +137,19 @@ const ExamPage = (props: Props) => {
   };
 
   const handleEnd = () => {
+    Cookies.remove("token");
+    localStorage.removeItem("competitionID");
+    localStorage.removeItem("examID");
     router.push("/");
   };
 
   return (
     <div className="fixed flex justify-center items-center inset-0 bg-[rgba(0,0,0,.5)] z-50">
-      <div className="relative bg-white w-5/6 h-5/6 rounded-lg overflow-hidden px-32  flex flex-col items-center justify-center ">
+      <form
+        onSubmit={handleSubmit(onSubmit)}
+        ref={formRef}
+        className="relative bg-white w-5/6 h-5/6 rounded-lg overflow-hidden px-32  flex flex-col items-center justify-center "
+      >
         {/* header */}
         <div className="absolute top-0 left-0 right-0 flex justify-between w-full ">
           <div className="absolute top-0 left-0 ">
@@ -158,7 +161,11 @@ const ExamPage = (props: Props) => {
             <div className="relative pl-4 h-32 w-32 ">
               <Image src={oclock} alt="" className="h-full object-cover " />
               <div className="text-xl absolute top-1/2 left-1/2  -translate-x-3">
-                <Countdown date={Date.now() + 600000} renderer={renderer}>
+                <Countdown
+                  date={Date.now() + 600000}
+                  onComplete={handleSubmit(onSubmit)}
+                  renderer={renderer}
+                >
                   <Completionist />
                 </Countdown>
               </div>
@@ -177,10 +184,7 @@ const ExamPage = (props: Props) => {
           </div>
         </div>
         {/* body */}
-        <form
-          onSubmit={handleSubmit(onSubmit)}
-          className="w-full flex flex-col gap-8 -translate-y-12"
-        >
+        <div className="w-full flex flex-col gap-8 -translate-y-12">
           <div className="flex justify-center">
             <p className="text-xl">
               Điền kết quả đúng vào ô tương ứng với câu hỏi trong file excel
@@ -292,7 +296,7 @@ const ExamPage = (props: Props) => {
               Nộp bài
             </Button>
           )}
-        </form>
+        </div>
 
         {/* footer */}
         <div className="absolute bottom-0 left-0 right-0 flex justify-between items-end">
@@ -304,7 +308,7 @@ const ExamPage = (props: Props) => {
             Design by team DK Educode
           </div>
         </div>
-      </div>
+      </form>
     </div>
   );
 };

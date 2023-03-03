@@ -6,8 +6,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { useRouter } from "next/router";
 import { convertToken } from "@/redux/actions/authAction";
 import Cookies from "js-cookie";
-import { getListExamType } from "@/pages/api/competition/competition";
+import {
+  getListExamType,
+  startCompetition,
+} from "@/pages/api/competition/competition";
 import { setExamID } from "@/redux/actions/competitionAction";
+import { toast } from "react-toastify";
 
 type Props = {};
 
@@ -46,12 +50,23 @@ const Exam = (props: Props) => {
         "examID",
         res.data.data[getRandomInt(0, res.data.data.length - 1)].codeID
       );
+
+      const res1 = await startCompetition({
+        CandidatesID: auth.user.CandidatesID,
+        examID: res.data.data[getRandomInt(0, res.data.data.length - 1)].codeID,
+        codeID: competition.codeID || Number(localStorage.getItem("examID")),
+      });
+      if (res1.data.status_code === 204) {
+        return toast.error(res1.data.detail, {
+          position: "top-center",
+          autoClose: 1500,
+        });
+      }
       router.push("/competition/exam/exam-page");
     } catch (error) {
       console.log("lỗi");
     }
   };
-
   return (
     <div className="mt-[170px] bg-gray-edeef3 min-h-screen flex items-center">
       <Head>

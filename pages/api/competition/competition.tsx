@@ -9,6 +9,7 @@ import {
   getListQuestionURL,
   loginUserEventURL,
   sendAnswerURL,
+  startCompetitionURL,
 } from "./competitionURL";
 
 export const loginUserEvent = async (data: any) => {
@@ -63,4 +64,11 @@ export const getCompetitionDetail = async (
   token?: string | undefined
 ) => {
   return await getDataAPI(getCompetitionDetailURL(examID), token);
+};
+
+export const startCompetition = async (
+  data: any,
+  token?: string | undefined
+) => {
+  return await postDataAPI(startCompetitionURL, data, token);
 };
