@@ -12,6 +12,7 @@ const Competition = (props: Props) => {
     async function fetchData() {
       const res = await getListCompetition();
       setCompetition(res.data.data);
+      console.log(res);
     }
     fetchData();
   }, []);
@@ -49,6 +50,7 @@ const Competition = (props: Props) => {
                     address={competition.address}
                     title={competition.title}
                     timeStart={competition.timestart}
+                    timeEnd={competition.timeend}
                     competitionId={competition.examID}
                   />
                 )

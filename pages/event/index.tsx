@@ -36,6 +36,7 @@ const Events = (props: Props) => {
               <Event
                 key={event.examID}
                 timeStart={event.timestart}
+                timeEnd={event.timeend}
                 address={event.address}
                 title={event.title}
                 link={event.urlpath}

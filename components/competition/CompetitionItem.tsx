@@ -13,6 +13,7 @@ type Props = {
   image: any;
   title: any;
   timeStart: any;
+  timeEnd: any;
   competitionId: any;
 };
 
@@ -21,6 +22,7 @@ const CompetitionItem = ({
   title,
   image,
   timeStart,
+  timeEnd,
   competitionId,
 }: Props) => {
   const router = useRouter();
@@ -37,7 +39,8 @@ const CompetitionItem = ({
       <div className="flex w-full justify-between">
         <div className="flex flex-col w-full gap-4">
           <p>
-            {moment(timeStart).locale("vi").format("LLLL")} | {address}
+            {moment(timeStart).locale("vi").format("LLLL")} {timeEnd && " - "}
+            {timeEnd && moment(timeEnd).locale("vi").format("LLLL")} | {address}
           </p>
           <div className="flex justify-between">
             <h6 className="text-2xl font-semibold cursor-pointer hover:text-orange-f04c23">
