@@ -3,9 +3,12 @@ import Courses from "@/components/main/courses/Courses";
 import Events from "@/components/main/events/Events";
 import Intro from "@/components/main/Intro";
 import Prices from "@/components/main/price/Prices";
+import Cookies from "js-cookie";
 import Head from "next/head";
 
 export default function Home() {
+  const token = Cookies.get("token");
+  console.log({ token });
   return (
     <>
       <Head>

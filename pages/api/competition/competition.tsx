@@ -8,6 +8,7 @@ import {
   getListExamTypeURL,
   getListQuestionURL,
   loginUserEventURL,
+  nextQuestionURL,
   sendAnswerURL,
   startCompetitionURL,
 } from "./competitionURL";
@@ -71,4 +72,8 @@ export const startCompetition = async (
   token?: string | undefined
 ) => {
   return await postDataAPI(startCompetitionURL, data, token);
+};
+
+export const nextQuestion = async (data: any, token?: string | undefined) => {
+  return await postDataAPI(nextQuestionURL, data, token);
 };

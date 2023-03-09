@@ -20,6 +20,7 @@ const Exam = (props: Props) => {
   const { auth, competition }: any = useSelector<any>((state) => state);
   const token = Cookies.get("token");
   const dispatch = useDispatch<any>();
+  console.log({ token });
 
   useEffect(() => {
     dispatch(convertToken(token));
@@ -34,7 +35,6 @@ const Exam = (props: Props) => {
   function getRandomInt(min: number, max: number) {
     return Math.floor(Math.random() * (max - min + 1) + min);
   }
-
   const handleStartExam = async () => {
     try {
       const res = await getListExamType(
@@ -68,6 +68,7 @@ const Exam = (props: Props) => {
       console.log("lỗi");
     }
   };
+
   return (
     <div className="mt-[170px] bg-gray-edeef3 min-h-screen flex items-center">
       <Head>

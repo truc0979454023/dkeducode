@@ -9,9 +9,10 @@ import SVGLoading from "@/components/common/loading/SVGLoading";
 import {
   getDownloadFileExam,
   getListQuestion,
+  nextQuestion,
   sendAnswer,
 } from "@/pages/api/competition/competition";
-import { convertToken } from "@/redux/actions/authAction";
+import { convertToken, logout } from "@/redux/actions/authAction";
 import Cookies from "js-cookie";
 import Image from "next/image";
 import { useRouter } from "next/router";
@@ -21,6 +22,7 @@ import { useForm } from "react-hook-form";
 import { FaRegHandPointRight } from "react-icons/fa";
 import { useDispatch, useSelector } from "react-redux";
 import { saveAs } from "file-saver";
+import { GLOBALTYPES } from "@/redux/GlobalTypes";
 
 type Props = {};
 
@@ -50,10 +52,10 @@ const ExamPage = (props: Props) => {
   }, [token, dispatch]);
 
   useEffect(() => {
-    if (!auth.user) {
-      router.push("/competition/login");
+    if (!auth?.user) {
+      router.push("/competition");
     }
-  }, [auth, router]);
+  }, [auth]);
 
   useEffect(() => {
     async function fetchData() {
@@ -130,17 +132,33 @@ const ExamPage = (props: Props) => {
     } catch (error) {}
   };
 
-  const handleContinue = () => {
+  const handleContinue = async () => {
     setIsSubmit(false);
-    setPage(page + 1);
-    setResults(null);
+    try {
+      const res = await nextQuestion(
+        {
+          CandidatesID: auth.user.CandidatesID,
+
+          examID: competition.examID || Number(localStorage.getItem("examID")),
+          codeID:
+            competition.codeID || Number(localStorage.getItem("competitionID")),
+        },
+        token
+      );
+      setPage(page + 1);
+      setResults(null);
+    } catch (error) {}
   };
 
   const handleEnd = () => {
-    Cookies.remove("token");
     localStorage.removeItem("competitionID");
     localStorage.removeItem("examID");
-    router.push("/");
+    Cookies.remove("token");
+    router.push("/competition");
+    dispatch({
+      type: GLOBALTYPES.AUTH,
+      payload: null,
+    });
   };
 
   return (
@@ -148,7 +166,7 @@ const ExamPage = (props: Props) => {
       <form
         onSubmit={handleSubmit(onSubmit)}
         ref={formRef}
-        className="relative bg-white w-5/6 h-5/6 rounded-lg overflow-hidden px-32  flex flex-col items-center justify-center "
+        className="relative bg-white w-[95%] lg:w-5/6 h-[95%] lg:h-5/6 rounded-lg overflow-hidden px-6 md:px-32  flex flex-col items-center justify-center  "
       >
         {/* header */}
         <div className="absolute top-0 left-0 right-0 flex justify-between w-full ">
@@ -173,7 +191,7 @@ const ExamPage = (props: Props) => {
           </div>
           <div className="absolute top-0 right-0 flex pt-3">
             <div className="flex flex-col items-end">
-              <p className="text-red-500 italic">
+              <p className="text-red-500 italic hidden md:block ">
                 * Tải file Excel thực hành tại đây
               </p>
               <FaRegHandPointRight className="text-2xl" />
@@ -184,15 +202,15 @@ const ExamPage = (props: Props) => {
           </div>
         </div>
         {/* body */}
-        <div className="w-full flex flex-col gap-8 -translate-y-12">
-          <div className="flex justify-center">
-            <p className="text-xl">
+        <div className="w-full flex flex-col gap-8 -translate-y-12 pt-6  ">
+          <div className="flex justify-center ml-28 md:ml-0">
+            <p className="text-base lg:text-xl">
               Điền kết quả đúng vào ô tương ứng với câu hỏi trong file excel
               thực hành
             </p>
           </div>
 
-          <div className="grid grid-cols-4 gap-10">
+          <div className="grid grid-cols-2 lg:grid-cols-4 gap-10">
             {currentQuestion?.map((question: any) => (
               <div key={question.q_id}>
                 <div className="relative">
@@ -234,10 +252,10 @@ const ExamPage = (props: Props) => {
               {results.count >= 8 ? (
                 <div className="absolute -bottom-28 flex justify-end items-center w-full gap-8">
                   <div className="flex-1 flex flex-col justify-end items-end ">
-                    <p className="text-7xl text-green-700 font-signika">
+                    <p className="text-4xl lg:text-7xl text-green-700 font-signika">
                       Congratulations!
                     </p>
-                    <p className="text-xl">
+                    <p className="text-base lg:text-xl">
                       {page < Math.floor(questions.length / 10)
                         ? `Chúc mừng thí sinh , mời bạn làm tiếp trang ${
                             page + 1
@@ -264,15 +282,14 @@ const ExamPage = (props: Props) => {
                   )}
                 </div>
               ) : (
-                <div className="absolute -bottom-32 flex justify-end items-center w-full gap-8">
+                <div className="absolute -bottom-32 flex justify-end items-center w-full gap-8 z-50">
                   <div className="flex-1 flex flex-col justify-end items-end ">
-                    <p className="text-7xl text-red-500 font-signika">
+                    <p className="text-3xl lg:text-7xl text-red-500 font-signika whitespace-nowrap">
                       See you next time!
                     </p>
-                    <p className="text-xl">
-                      Cảm ơn bạn đã tham gia thi đấu.
-                      <br />
-                      Chúc bạn bình tĩnh hơn cho mùa 2.
+                    <p className="text-base lg:text-xl">
+                      Cảm ơn bạn đã tham gia thi đấu. Chúc bạn bình tĩnh hơn cho
+                      mùa 2.
                     </p>
                   </div>
                   <Button

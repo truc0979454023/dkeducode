@@ -14,3 +14,4 @@ export const getListQuestionURL = (codeID: number, examID: number) =>
 export const getCompetitionDetailURL = (examID: number) =>
   `kdeducode/examination/detail-exam?examID=${examID}`;
 export const startCompetitionURL = "kdeducode/examination/start-the-exam";
+export const nextQuestionURL = "kdeducode/examination/next-question";

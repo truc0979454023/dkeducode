@@ -113,7 +113,7 @@ const dataCourses = [
     lesson: 11,
     star: 5,
     rating: 65,
-    title: "Excel Dât Scraping with VBA and Selenium",
+    title: "Excel Data Scraping with VBA and Selenium",
     teacher: "Phạm Văn Kiểu",
     oldPrice: 25,
     price: 22,

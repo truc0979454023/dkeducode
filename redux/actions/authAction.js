@@ -18,7 +18,7 @@ export const login = (data) => async (dispatch) => {
       });
     }
 
-    Cookies.set("token", res.data.data.access_token, { expires: 15, path: "" });
+    Cookies.set("token", res.data.data.access_token);
     dispatch({
       type: GLOBALTYPES.AUTH,
       payload: { user: res.data.data },
@@ -60,14 +60,10 @@ export const convertToken = (token) => async (dispatch) => {
   }
 };
 
-export const logout = () => async (dispatch) => {
-  try {
-    window.location.href = "/";
-    Cookies.remove("token");
-  } catch (error) {
-    dispatch({
-      type: GLOBALTYPES.ALERT,
-      payload: { error: error.response.data.msg },
-    });
-  }
+export const logout = () => (dispatch) => {
+  Cookies.remove("token");
+  dispatch({
+    type: GLOBALTYPES.AUTH,
+    payload: null,
+  });
 };

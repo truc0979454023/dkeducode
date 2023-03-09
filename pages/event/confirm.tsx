@@ -69,7 +69,14 @@ const Confirm = (props: Props) => {
         </Head>
         <div className="max-w-screen-xl h-full mx-auto w-[95%] flex flex-col gap-16 items-center justify-start pb-32">
           <div className="flex md:flex-row flex-col justify-center items-center">
-            <Image src={excel} alt="" className="w-52 h-52" />
+            {/* <Image src={excel} alt="" className="w-52 h-52" /> */}
+            <Image
+              src={`data:image/jpeg;base64, ${eventDetail?.img_createExamID_re?.imgsuccess}`}
+              alt=""
+              className="w-52 h-52"
+              width={52}
+              height={52}
+            />
             <div className="font-signika text-green-600 text-5xl md:text-7xl lg:text-8xl text-center">
               Welcome! <br />
               {eventDetail?.description}
@@ -77,18 +84,32 @@ const Confirm = (props: Props) => {
           </div>
           <div className=" flex flex-col justify-center gap-2">
             <p className="text-3xl font-medium text-center">
-              Chúc mừng bạn đã đăng ký thành công với mã số báo thi
+              {eventDetail?.event_type === "SK"
+                ? "Chúc mừng bạn đã đăng ký thành công"
+                : "Chúc mừng bạn đã đăng ký thành công với mã số báo thi"}
             </p>
-            <span className="px-10 py-4 text-red-500 text-center font-medium text-3xl bg-gray-100">
-              {id}
-            </span>
+            {eventDetail?.event_type === "SK" ? (
+              ""
+            ) : (
+              <span className="px-10 py-4 text-red-500 text-center font-medium text-3xl bg-gray-100">
+                {id}
+              </span>
+            )}
           </div>
 
           <div className="flex flex-col h-full gap-2">
-            <p>Lệ phí thi {eventDetail?.fees}VND/người</p>
             <p>
-              Thí sinh vui lòng chuyển khoản với nội dung: Mã số báo thi + Số
-              điện thoại đăng ký thi
+              Phí tham gia:{" "}
+              {eventDetail?.fees.toLocaleString("vi", {
+                style: "currency",
+                currency: "VND",
+              })}
+              VND/người
+            </p>
+            <p>
+              {eventDetail?.event_type === "SK"
+                ? "Bạn vui lòng chuyển khoản với nội dung: Số điện thoại đăng ký"
+                : "Bạn vui lòng chuyển khoản với nội dung: Mã số báo thi + Số điện thoại đăng ký thi"}
             </p>
             <p>Thông tin chuyển khoản:</p>
             <div className="flex items-center h-full gap-4 flex-col md:flex-row">
@@ -109,7 +130,7 @@ const Confirm = (props: Props) => {
             {eventDetail?.URLsocal && (
               <>
                 <p className="text-xl text-center">
-                  Mời bạn tham gia nhóm để cập nhập thông tin cuộc thi
+                  Mời bạn tham gia nhóm để cập nhập thông tin sự kiện
                 </p>
                 <p className="text-xl text-center">
                   Zalo:
