@@ -56,7 +56,7 @@ const Competition = (props: Props) => {
                   competition.event_type === "TD" && (
                     <CompetitionItem
                       key={competition.examID}
-                      image={competition.baseimg}
+                      image={competition.imageID}
                       address={competition.address}
                       title={competition.title}
                       timeStart={competition.timestart}

@@ -62,12 +62,20 @@ const CompetitionItem = ({
         </div>
       </div>
       <div className="rounded-lg overflow-hidden">
-        <Image
+        {/* <Image
           src={`data:image/jpeg;base64, ${image}`}
           alt=""
           className="w-full"
           width={140}
           height={140}
+        /> */}
+
+        <Image
+          src={`https://drive.google.com/uc?export=view&id=${image}`}
+          alt=""
+          className="w-full"
+          width={2048}
+          height={2048}
         />
       </div>
     </div>

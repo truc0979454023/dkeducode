@@ -53,7 +53,7 @@ const Events = (props: Props) => {
                   address={event.address}
                   title={event.title}
                   link={event.urlpath}
-                  image={event.baseimg}
+                  image={event.imageID}
                 />
               ))}
               {/* <Event

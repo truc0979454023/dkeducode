@@ -111,6 +111,7 @@ const Register = (props: Props) => {
       });
     }
   };
+
   return (
     <div className="mt-[170px] bg-gray-edeef3 min-h-screen">
       <Head>
@@ -315,7 +316,7 @@ const Register = (props: Props) => {
               <div
                 className={
                   eventDetail?.event_type === "SK"
-                    ? "lg:w-2/3 h-full py-10 items-center lg:p-0 flex items-end"
+                    ? "lg:w-2/3 h-full py-10 items-center lg:p-0 flex "
                     : "lg:w-1/2 h-full py-10 lg:p-0 flex items-end"
                 }
               >
@@ -325,11 +326,11 @@ const Register = (props: Props) => {
             </div> */}
                   <div className=" top-0 left-0 w-full h-full">
                     <Image
-                      src={`data:image/jpeg;base64, ${eventDetail?.img_createExamID_re?.img64}`}
+                      src={`https://drive.google.com/uc?export=view&id=${eventDetail?.img_createExamID_re.img_createExamDrive}`}
                       alt=""
                       className="w-full"
-                      width={140}
-                      height={140}
+                      width={1024}
+                      height={1024}
                     />
                   </div>
                 </div>

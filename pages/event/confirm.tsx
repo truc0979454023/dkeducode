@@ -70,13 +70,15 @@ const Confirm = (props: Props) => {
         <div className="max-w-screen-xl h-full mx-auto w-[95%] flex flex-col gap-16 items-center justify-start pb-32">
           <div className="flex md:flex-row flex-col justify-center items-center">
             {/* <Image src={excel} alt="" className="w-52 h-52" /> */}
-            <Image
-              src={`data:image/jpeg;base64, ${eventDetail?.img_createExamID_re?.imgsuccess}`}
-              alt=""
-              className="w-52 h-52"
-              width={52}
-              height={52}
-            />
+            <div className="w-52 h-52">
+              <Image
+                src={`https://drive.google.com/uc?export=view&id=${eventDetail?.imgsuccessID}`}
+                alt=""
+                className="w-full"
+                width={1024}
+                height={1024}
+              />
+            </div>
             <div className="font-signika text-green-600 text-5xl md:text-7xl lg:text-8xl text-center">
               Welcome! <br />
               {eventDetail?.description}

@@ -79,11 +79,11 @@ const MainHeader = ({}: Props) => {
                       Sự kiện
                     </li>
                   </Link>
-                  {/* <Link href={"/competition"} className="w-full">
+                  <Link href={"/competition"} className="w-full">
                     <li className="hover:text-orange-f04c23 border-b w-full flex justify-center border-gray-300 px-10">
                       Thi đấu
                     </li>
-                  </Link> */}
+                  </Link>
                 </ul>
                 <div className="absolute w-full items-center flex p-4 -bottom-13 right-0 rounded-lg">
                   <input

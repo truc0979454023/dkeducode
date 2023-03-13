@@ -50,11 +50,11 @@ const Event = ({
       </div>
       <div className="rounded-lg overflow-hidden">
         <Image
-          src={`data:image/jpeg;base64, ${image}`}
+          src={`https://drive.google.com/uc?export=view&id=${image}`}
           alt=""
           className="w-full"
-          width={140}
-          height={140}
+          width={1024}
+          height={1024}
         />
       </div>
     </div>
