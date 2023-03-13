@@ -7,7 +7,7 @@ type Props = {
 
 const Loading = ({ size }: Props) => {
   return (
-    <div className="absolute inset-0 bg-[rgba(0,0,0,0.2)] z-[100]">
+    <div className="fixed inset-0 bg-[rgba(0,0,0,0.2)] z-[100]">
       <div
         className="loader loader--style2"
         style={{

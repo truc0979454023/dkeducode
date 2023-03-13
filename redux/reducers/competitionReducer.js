@@ -3,6 +3,7 @@ import { GLOBALTYPES } from "../GlobalTypes";
 const initialState = {
   codeID: null,
   examID: null,
+  isTryAgain: false,
 };
 
 const competitionReducer = (state = initialState, action) => {
@@ -13,6 +14,10 @@ const competitionReducer = (state = initialState, action) => {
 
     case GLOBALTYPES.SET_EXAM_ID:
       state = { ...state, codeID: action.payload };
+      return state;
+
+    case GLOBALTYPES.TRY_AGAIN:
+      state = { ...state, isTryAgain: action.payload };
       return state;
     default:
       return state;

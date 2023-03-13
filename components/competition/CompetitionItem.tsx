@@ -43,7 +43,10 @@ const CompetitionItem = ({
             {timeEnd && moment(timeEnd).locale("vi").format("LLLL")} | {address}
           </p>
           <div className="flex justify-between">
-            <h6 className="text-2xl font-semibold cursor-pointer hover:text-orange-f04c23">
+            <h6
+              onClick={handleLoginCompetition}
+              className="text-2xl font-semibold cursor-pointer hover:text-orange-f04c23"
+            >
               {title}
             </h6>
             <div className="flex items-center w-full md:w-auto gap-2 group">

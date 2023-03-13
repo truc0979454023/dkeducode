@@ -15,6 +15,7 @@ type Props = {
   value?: string | number | readonly string[] | undefined;
   onKeyUp?: React.KeyboardEventHandler<HTMLInputElement> | undefined;
   size?: string;
+  onKeyPress?: React.KeyboardEventHandler<HTMLInputElement> | undefined;
 };
 
 const Input = ({
@@ -30,6 +31,7 @@ const Input = ({
   onChange,
   checked,
   value,
+  onKeyPress,
   onKeyUp,
   size = "sm",
 }: Props) => {
@@ -57,6 +59,7 @@ const Input = ({
           checked={checked}
           placeholder={placeholder}
           readOnly={readOnly}
+          onKeyPress={onKeyPress}
           onKeyUp={onKeyUp}
           {...register}
           defaultValue={defaultValue}
@@ -72,6 +75,7 @@ const Input = ({
           id={id}
           checked={checked}
           placeholder={placeholder}
+          onKeyPress={onKeyPress}
           readOnly={readOnly}
           onChange={onChange}
           value={value}

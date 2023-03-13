@@ -10,6 +10,7 @@ export const login = (data) => async (dispatch) => {
     dispatch({ type: GLOBALTYPES.ALERT, payload: { loading: true } });
 
     const res = await loginUserEvent(data);
+    console.log(res);
 
     if (res.data.status_code === 204) {
       return dispatch({

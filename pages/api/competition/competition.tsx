@@ -9,6 +9,7 @@ import {
   getListQuestionURL,
   loginUserEventURL,
   nextQuestionURL,
+  registerForTheExamURL,
   sendAnswerURL,
   startCompetitionURL,
 } from "./competitionURL";
@@ -42,11 +43,11 @@ export const getListExamType = async (
 
 export const getDownloadFileExam = async (
   codeID: number,
-  examID: number,
+  index: number,
   token?: string | undefined
 ) => {
   return await downloadDataAPI(
-    getDownloadFileExamURL(codeID, examID),
+    getDownloadFileExamURL(codeID, index),
     null,
     token
   );
@@ -67,13 +68,29 @@ export const getCompetitionDetail = async (
   return await getDataAPI(getCompetitionDetailURL(examID), token);
 };
 
+// export const startCompetition = async (
+//   data: any,
+//   token?: string | undefined
+// ) => {
+//   return await postDataAPI(startCompetitionURL, data, token);
+// };
+
 export const startCompetition = async (
-  data: any,
+  examNumber: string,
+  codeID: number,
   token?: string | undefined
 ) => {
-  return await postDataAPI(startCompetitionURL, data, token);
+  return await postDataAPI(startCompetitionURL(examNumber, codeID), token);
 };
 
 export const nextQuestion = async (data: any, token?: string | undefined) => {
   return await postDataAPI(nextQuestionURL, data, token);
+};
+
+export const registerForTheExam = async (
+  codeID: number,
+  candidatesID: number,
+  token?: string | undefined
+) => {
+  return await getDataAPI(registerForTheExamURL(codeID, candidatesID), token);
 };

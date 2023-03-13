@@ -11,6 +11,9 @@ import { useRouter } from "next/router";
 import { useDispatch, useSelector } from "react-redux";
 import { convertToken, login } from "@/redux/actions/authAction";
 import Cookies from "js-cookie";
+import qr_pvk from "@/assets/images/QR-PVK-bank.png";
+import qr_ptvh from "@/assets/images/QR-PTVH-bank.png";
+import momo_ptvh from "@/assets/images/momo-tag.png";
 
 type Props = {};
 type Inputs = {
@@ -84,34 +87,15 @@ const Login = (props: Props) => {
           >
             <div className="flex flex-col w-full justify-center items-center gap-14">
               <div className="w-full flex flex-col gap-10 items-center max-w-[480px]">
-                {/* <div className="w-full">
-                  <Input
-                    size="lg"
-                    required={true}
-                    readOnly={loading}
-                    type={"tel"}
-                    label="Số điện thoại"
-                    register={register("phone", {
-                      required: "Vui lòng nhập số điện thoại",
-                    })}
-                    id="phone"
-                  />
-                  {errors.phone?.message && (
-                    <p className="text-red-500 p-0 text-sm">
-                      {errors.phone?.message}
-                    </p>
-                  )}
-                </div> */}
-
                 <div className="w-full">
                   <Input
                     size="lg"
                     required={true}
                     readOnly={loading}
                     type={"tel"}
-                    label="Mã thí sinh"
+                    label="Mã dự thi"
                     register={register("candidateId", {
-                      required: "Vui lòng nhập mã thí sinh",
+                      required: "Vui lòng nhập mã dự thi",
                     })}
                     id="candidateId"
                   />
@@ -141,6 +125,29 @@ const Login = (props: Props) => {
               <div className=" top-0 left-0 w-full h-full">
                 <Image alt="" src={eventRegister} className="w-full" />
               </div>
+            </div>
+          </div>
+        </div>
+        <div className="flex flex-col items-center  h-full gap-2">
+          <p>
+            Nếu bạn chưa đóng lệ phí thi{" "}
+            <span className="text-red-500">(50.000VND / lần) </span>vui lòng
+            chuyển khoản với nội dung: Mã số báo thi + Số điện thoại đăng ký thi
+          </p>
+          <p>Thông tin chuyển khoản:</p>
+          <div className="flex items-center h-full gap-4 flex-col md:flex-row">
+            <div className="flex items-center gap-2 flex-col md:flex-row ">
+              <Image src={qr_pvk} alt="" className="w-28 h-28" />
+              <div className="text-center md:text-start">
+                <p>Ngân hàng: VPBank - Việt Nam Thịnh Vượng</p>
+                <p>STK: 112200541</p>
+                <p>Người thụ hưởng: Phạm Văn Kiểu</p>
+              </div>
+            </div>
+            <div className="h-[2px] md:h-[100px] w-full md:w-[2px] bg-orange-f04c23"></div>
+            <div className="flex gap-2">
+              <Image src={qr_ptvh} alt="" className="w-28 h-28" />
+              <Image src={momo_ptvh} alt="" className="w-36 object-contain" />
             </div>
           </div>
         </div>
