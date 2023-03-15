@@ -213,7 +213,7 @@ const ExamPage = (props: Props) => {
                   <Image src={oclock} alt="" className="h-full object-cover " />
                   <div className="text-xl absolute top-1/2 left-1/2  -translate-x-3">
                     <Countdown
-                      date={Date.now() + 60000}
+                      date={Date.now() + 600000}
                       renderer={renderer}
                       key={page}
                       onComplete={handleSubmit(onSubmit)}
