@@ -132,7 +132,8 @@ const Login = (props: Props) => {
           <p>
             Nếu bạn chưa đóng lệ phí thi{" "}
             <span className="text-red-500">(50.000VND / lần) </span>vui lòng
-            chuyển khoản với nội dung: Mã số báo thi + Số điện thoại đăng ký thi
+            chuyển khoản với nội dung: Mã số thí sinh + Số điện thoại đăng ký
+            thi
           </p>
           <p>Thông tin chuyển khoản:</p>
           <div className="flex items-center h-full gap-4 flex-col md:flex-row">

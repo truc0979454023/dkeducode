@@ -159,13 +159,13 @@ const Exam = (props: Props) => {
             </div>
 
             <div className="flex gap-2 text-lg font-medium">
-              <span>Trường:</span>
-              <p>{auth?.user?.e_school}</p>
+              <span>Chuyên môn:</span>
+              <p>{auth?.user?.e_specialized}</p>
             </div>
 
             <div className="flex gap-2 text-lg font-medium">
-              <span>Chuyên ngành:</span>
-              <p>{auth?.user?.e_specialized}</p>
+              <span>Đơn vị công tác:</span>
+              <p>{auth?.user?.e_school}</p>
             </div>
           </div>
         </div>
