@@ -7,6 +7,7 @@ import {
   getListExamSubjectURL,
   getListExamTypeURL,
   getListQuestionURL,
+  getTotalScoreURL,
   loginUserEventURL,
   nextQuestionURL,
   registerForTheExamURL,
@@ -93,4 +94,11 @@ export const registerForTheExam = async (
   token?: string | undefined
 ) => {
   return await getDataAPI(registerForTheExamURL(codeID, candidatesID), token);
+};
+
+export const getTotalScore = async (
+  examID: number,
+  token?: string | undefined
+) => {
+  return await getDataAPI(getTotalScoreURL(examID), token);
 };

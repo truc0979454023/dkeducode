@@ -21,3 +21,6 @@ export const nextQuestionURL = "kdeducode/examination/next-question";
 
 export const registerForTheExamURL = (codeID: number, candidatesID: number) =>
   `kdeducode/examination/re-register-for-the-exam?examID=${codeID}&CandidatesID=${candidatesID}`;
+
+export const getTotalScoreURL = (examID: number) =>
+  `kdeducode/statistical/total-score?examID=${examID}`;

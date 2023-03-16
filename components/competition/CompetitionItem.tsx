@@ -49,14 +49,26 @@ const CompetitionItem = ({
             >
               {title}
             </h6>
-            <div className="flex items-center w-full md:w-auto gap-2 group">
-              <span
-                onClick={handleLoginCompetition}
-                className="hover:text-orange-f04c23 cursor-pointer font-medium"
+            <div className="flex flex-col gap-4">
+              <div className="flex items-center w-full md:w-auto gap-2 group text-xl">
+                <span
+                  onClick={handleLoginCompetition}
+                  className="hover:text-orange-f04c23 cursor-pointer font-medium"
+                >
+                  Bắt đầu
+                </span>
+                <FiArrowRight className="font-bold text-xl group-hover:translate-x-1 transition-all" />
+              </div>
+
+              <Link
+                href={`/competition/answer?id=${competitionId}`}
+                className="flex items-center w-full md:w-auto gap-2 group"
               >
-                Bắt đầu
-              </span>
-              <FiArrowRight className="font-bold text-xl group-hover:translate-x-1 transition-all" />
+                <span className="hover:text-orange-f04c23 cursor-pointer font-medium">
+                  Xem kết quả
+                </span>
+                <FiArrowRight className="font-bold text-xl group-hover:translate-x-1 transition-all" />
+              </Link>
             </div>
           </div>
         </div>

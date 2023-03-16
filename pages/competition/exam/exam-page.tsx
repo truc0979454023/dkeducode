@@ -191,6 +191,28 @@ const ExamPage = (props: Props) => {
     );
   };
 
+  useEffect(() => {
+    window.onbeforeunload = function () {
+      localStorage.removeItem("competitionID");
+      localStorage.removeItem("examID");
+      localStorage.removeItem("isTryAgain");
+      Cookies.remove("token");
+      router.push("/competition");
+      dispatch({
+        type: GLOBALTYPES.AUTH,
+        payload: null,
+      });
+      dispatch({
+        type: GLOBALTYPES.TRY_AGAIN,
+        payload: false,
+      });
+    };
+
+    return () => {
+      window.onbeforeunload = null;
+    };
+  }, []);
+
   return (
     <div className="fixed flex justify-center items-center inset-0 bg-[rgba(0,0,0,.5)] z-50">
       <form
