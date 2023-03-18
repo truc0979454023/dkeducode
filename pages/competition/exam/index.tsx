@@ -20,6 +20,7 @@ import qr_ptvh from "@/assets/images/QR-PTVH-bank.png";
 import momo_ptvh from "@/assets/images/momo-tag.png";
 import Input from "@/components/common/Input";
 import { useForm } from "react-hook-form";
+import { GLOBALTYPES } from "@/redux/GlobalTypes";
 
 type Props = {};
 type Inputs = {
@@ -120,6 +121,24 @@ const Exam = (props: Props) => {
     }
   };
 
+  const handleEnd = () => {
+    if (window.confirm("Bạn có chắc chắn muốn thoát?") === true) {
+      localStorage.removeItem("competitionID");
+      localStorage.removeItem("examID");
+      localStorage.removeItem("isTryAgain");
+      Cookies.remove("token");
+      router.push("/competition");
+      dispatch({
+        type: GLOBALTYPES.AUTH,
+        payload: null,
+      });
+      dispatch({
+        type: GLOBALTYPES.TRY_AGAIN,
+        payload: false,
+      });
+    }
+  };
+
   return (
     <div className="mt-[170px] bg-gray-edeef3 min-h-screen flex items-center">
       <Head>
@@ -169,7 +188,7 @@ const Exam = (props: Props) => {
             </div>
           </div>
         </div>
-        <div className="flex items-center gap-4">
+        <div className="flex flex-col md:flex-row items-center gap-4">
           <div
             className={`w-full ${
               competition.isTryAgain || isTryAgain ? "block" : "hidden"
@@ -196,10 +215,20 @@ const Exam = (props: Props) => {
               disabled={loading}
               className={`font-medium text-white ${
                 loading ? "bg-gray-500" : "bg-blue-600"
-              } `}
+              } whitespace-nowrap `}
               onClick={handleStartExam}
             >
               {loading && <SVGLoading size={20} />} BẮT ĐẦU
+            </Button>
+          </div>
+
+          <div className="text-2xl">
+            <Button
+              disabled={loading}
+              className={`font-medium text-white bg-red-500 whitespace-nowrap `}
+              onClick={handleEnd}
+            >
+              THOÁT
             </Button>
           </div>
         </div>

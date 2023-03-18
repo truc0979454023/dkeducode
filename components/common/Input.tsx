@@ -16,6 +16,7 @@ type Props = {
   onKeyUp?: React.KeyboardEventHandler<HTMLInputElement> | undefined;
   size?: string;
   onKeyPress?: React.KeyboardEventHandler<HTMLInputElement> | undefined;
+  autoComplete?: string;
 };
 
 const Input = ({
@@ -33,6 +34,7 @@ const Input = ({
   value,
   onKeyPress,
   onKeyUp,
+  autoComplete = "off",
   size = "sm",
 }: Props) => {
   const sizeClassName = (size: string) => {
@@ -55,6 +57,7 @@ const Input = ({
       {register ? (
         <input
           type={type}
+          autoComplete={autoComplete}
           id={id}
           checked={checked}
           placeholder={placeholder}
@@ -77,6 +80,7 @@ const Input = ({
           placeholder={placeholder}
           onKeyPress={onKeyPress}
           readOnly={readOnly}
+          autoComplete={autoComplete}
           onChange={onChange}
           value={value}
           onKeyUp={onKeyUp}

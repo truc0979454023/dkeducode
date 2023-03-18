@@ -85,11 +85,12 @@ const ExamPage = (props: Props) => {
         competition.codeID || Number(localStorage.getItem("competitionID")),
         page
       );
+      console.log(res);
       const url = window.URL.createObjectURL(new Blob([res.data]));
 
       const link = document.createElement("a");
       link.href = url;
-      link.setAttribute("download", "question.xlsx");
+      link.setAttribute("download", `Trang${page}.xlsx`);
       document.body.appendChild(link);
       link.click();
       link.remove();
@@ -235,7 +236,7 @@ const ExamPage = (props: Props) => {
                   <Image src={oclock} alt="" className="h-full object-cover " />
                   <div className="text-xl absolute top-1/2 left-1/2  -translate-x-3">
                     <Countdown
-                      date={Date.now() + 600000}
+                      date={Date.now() + 900000}
                       renderer={renderer}
                       key={page}
                       onComplete={handleSubmit(onSubmit)}

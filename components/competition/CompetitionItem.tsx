@@ -60,7 +60,7 @@ const CompetitionItem = ({
                 <FiArrowRight className="font-bold text-xl group-hover:translate-x-1 transition-all" />
               </div>
 
-              <Link
+              {/* <Link
                 href={`/competition/answer?id=${competitionId}`}
                 className="flex items-center w-full md:w-auto gap-2 group"
               >
@@ -68,7 +68,7 @@ const CompetitionItem = ({
                   Xem kết quả
                 </span>
                 <FiArrowRight className="font-bold text-xl group-hover:translate-x-1 transition-all" />
-              </Link>
+              </Link> */}
             </div>
           </div>
         </div>
